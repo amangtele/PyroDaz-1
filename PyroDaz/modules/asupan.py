@@ -8,7 +8,7 @@ from config import CMD_HANDLER as cmd
 from PyroDaz.helpers.basic import edit_or_reply
 from PyroDaz.helpers.PyroHelpers import ReplyCheck
 
-from PyroDaz.modules.help import add_command_help
+from .help import add_command_help
 
 
 @Client.on_message(filters.command(["asupan", "ptl"], cmd) & filters.me)
