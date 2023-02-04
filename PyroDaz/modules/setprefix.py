@@ -15,6 +15,8 @@ from PyroDaz.helpers.SQL.globals import addgvar
 from PyroDaz.helpers.tools import eod, get_arg
 from config import CMD_HANDLER as cmd
 
+from .help import add_command_help
+
 @Client.on_message(
     filters.command(["setprefix", "sethandler", "setcmd"], cmd) & filters.me
 )
@@ -32,6 +34,12 @@ async def setprefix_(c: Client, m: Message):
         restart()
 
 
-modules_help["setprefix"] = {
-    "setprefix": "Set your prefix handler.",
-}
+add_command_help(
+    "setprefix",
+    [
+        [
+            "setprefix <type setprefix>",
+            "change your prefix memeq.",
+        ]
+    ],
+)
