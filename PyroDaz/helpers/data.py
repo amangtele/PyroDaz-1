@@ -1,13 +1,13 @@
-from pyrogram.types import InlineKeyboardButton, WebAppInfo
-from config import CMD_HANDLER
+from pyrogram.types import InlineKeyboardButton
+from config import CMD_HANDLER as cmd
 
 class Data:
 
     text_help_menu = (
-        "**Command List & Help**\n**— Prefixes:** `{CMD_HANDLER}`"
+        f"**Command List & Help**\n**Prefixes:** {cmd}"
         .replace(",", "")
         .replace("[", "")
         .replace("]", "")
         .replace("'", "")
     )
-    reopen = [[InlineKeyboardButton("ᴏᴘᴇɴ", callback_data="reopen")]]
+    reopen = [[InlineKeyboardButton("**ᴏᴘᴇɴ**", callback_data="reopen")]]
