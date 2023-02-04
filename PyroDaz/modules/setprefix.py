@@ -11,6 +11,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
+from PyroDaz.utils.misc import restart
 from PyroDaz.helpers.SQL.globals import addgvar
 from PyroDaz.helpers.tools import eod, get_arg
 from config import CMD_HANDLER as cmd
