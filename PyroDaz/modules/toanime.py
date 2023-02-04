@@ -16,7 +16,7 @@ from pyrogram import Client, filters, enums
 from pyrogram.types import Message
 from PyroDaz.helpers.basic import edit_or_reply
 from PyroDaz.modules import add_command_help
-from Geez import cmds
+from config import CMD_HANDLER as cmds
 
 @Client.on_message(filters.command("toanime", cmds) & filters.me)
 async def convert_image(client: Client, message: Message):
@@ -34,7 +34,7 @@ async def convert_image(client: Client, message: Message):
         if result.photo:
             await message.edit("uploading...")
             converted_image_file = await client.download_media(result)
-            await client.send_photo(message.chat.id, converted_image_file, caption="Powered by Geez Pyro")
+            await client.send_photo(message.chat.id, converted_image_file, caption="Powered by DazPyro")
             await message.delete()
         else:
             await message.edit("`error message ...`")
