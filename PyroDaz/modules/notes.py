@@ -2,7 +2,7 @@ from asyncio import sleep
 
 from pyrogram import Client, filters
 
-from PyroDaz.helpers.sql.notes_sql import add_note, get_note, get_notes, rm_note
+from PyroDaz.helpers.SQL.notes_sql import add_note, get_note, get_notes, rm_note
 from PyroDaz.helpers.tools import get_arg
 from PyroDaz.modules.help import add_command_help
 from config import CMD_HANDLER as prefix
