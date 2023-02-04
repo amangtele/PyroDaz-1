@@ -11,7 +11,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
-from PyroDaz.helpers.sql.globals import addgvar
+from PyroDaz.helpers.SQL.globals import addgvar
 from PyroDaz.helpers.tools import eod, get_arg
 from config import CMD_HANDLER as cmd
 
@@ -23,12 +23,12 @@ async def setprefix_(c: Client, m: Message):
     if not handle:
         return await eod(
             m,
-            f"Set you prefix use `{prefix}setprefix [new_prefix]`\n • Current prefix is `{cmd}`",
+            f"Set you prefix use {prefix}setprefix [new_prefix]\n • Current prefix is {cmd}",
             time=30,
         )
     else:
         addgvar("PREFIX", handle)
-        await m.edit(f"☑️ **Prefix change to** [`{handle}`]")
+        await m.edit(f"☑️ Prefix change to [{handle}]")
         restart()
 
 
