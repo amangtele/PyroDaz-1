@@ -52,19 +52,21 @@ async def get_readable_time(seconds: int) -> str:
 async def alive_function(message: Message, answers):
     uptime = await get_readable_time((time.time() - StartTime))
     msg = f"""
-<b> — Hey, I am alive.</b>
-<b> • User :</b> {message.from_user.mention}
-<b> • Plugins :</b> <code>{len(CMD_HELP)} Modules</code>
-<b> • Python Version :</b> <code>{pyver.split()[0]}</code>
-<b> • Pyrogram Version :</b> <code>{pyrover}</code>
-<b> • Bot Uptime :</b> <code>{uptime}</code>
-<b> — Bot version: 2.0</b>
+<b> 𝗣𝘆𝗿𝗼𝗗𝗮𝘇 𝗨𝘀𝗲𝗿𝗯𝗼𝘁 </b>
+       Status : 𝘗𝘳𝘦𝘮𝘪𝘶𝘮 [Devs]
+<b>         Exp on:</b> `04.02.2027`
+<b>         User :</b> {message.from_user.mention}
+<b>         Plugins :</b> <code>{len(CMD_HELP)} Modules</code>
+<b>         Python Version :</b> <code>{pyver.split()[0]}</code>
+<b>         Pyrogram Version :</b> <code>{pyrover}</code>
+<b>         Bot Uptime :</b> <code>{uptime}</code>
+<b>         Bot version:</b> <code>{BOT_VER}</code>
 """
     answers.append(
         InlineQueryResultArticle(
-            title="awake",
+            title="Alive",
             description="Check Bot's Stats",
-            thumb_url="https://telegra.ph//file/5f3929a7c65ed2dfd93db.jpg",
+            thumb_url="https://te.legra.ph/file/2a9123e82f02807224fe7.jpg",
             input_message_content=InputTextMessageContent(
                 msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
             ),
@@ -82,7 +84,7 @@ async def ping_function(message: Message, answers):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     msg = (
-        f"<b>💢𝐔𝐬𝐞𝐫𝐛𝐨𝐭💢</b>\n\n"
+        f"<b>𝗣𝘆𝗿𝗼𝗗𝗮𝘇 𝗨𝘀𝗲𝗿𝗯𝗼𝘁 </b>\n\n"
         f"<b>🇮🇩ᴋᴏɴᴛᴏʟ!!<b>\n"
         f"├•ᴜᴘᴛɪᴍᴇ :</b> <code>{uptime}</code>\n"
         f"├•ᴅᴜʀᴀᴛɪᴏɴ :</b> <code>{duration}ms</code>\n"
@@ -91,7 +93,7 @@ async def ping_function(message: Message, answers):
         InlineQueryResultArticle(
             title="ping",
             description="Check Bot's Stats",
-            thumb_url="https://telegra.ph//file/5f3929a7c65ed2dfd93db.jpg",
+            thumb_url="https://te.legra.ph/file/2a9123e82f02807224fe7.jpg",
             input_message_content=InputTextMessageContent(
                 msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
             ),
@@ -105,22 +107,22 @@ async def ping_function(message: Message, answers):
 
 async def karman_function(message: Message, answers):
     msg = (
-        f" 𝗣𝘆𝗿𝗼𝗹𝗶𝗻𝗲 𝗕𝗼𝘁 \n"
+        f"𝗣𝘆𝗿𝗼𝗗𝗮𝘇 𝗨𝘀𝗲𝗿𝗯𝗼𝘁 \n"
         "ㅤㅤStatus : 𝘗𝘳𝘦𝘮𝘪𝘶𝘮 \n"
         f"ㅤㅤㅤㅤmodules:</b> <code>{len(modules)} Modules</code> \n"
         f"ㅤㅤㅤㅤbot version: {BOT_VER} \n"
-        f"ㅤㅤㅤㅤbranch: {branch} \n"
+        f"ㅤㅤㅤㅤbranch: {branch} \n\n"
     )
     answers.append(
         InlineQueryResultArticle(
-            title="alive",
+            title="kar",
             description="Check Bot's Stats",
-            thumb_url="https://telegra.ph//file/5f3929a7c65ed2dfd93db.jpg",
+            thumb_url="https://te.legra.ph/file/2a9123e82f02807224fe7.jpg",
             input_message_content=InputTextMessageContent(
                 msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
             ),
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="close", callback_data=r"close")]]
+                [[InlineKeyboardButton("Support", url="t.me/about_db")]]
             ),
         )
     )
@@ -133,7 +135,7 @@ async def help_function(answers):
         InlineQueryResultArticle(
             title="Help Article!",
             description="Check Command List & Help",
-            thumb_url="https://telegra.ph//file/5f3929a7c65ed2dfd93db.jpg",
+            thumb_url="https://te.legra.ph/file/2a9123e82f02807224fe7.jpg",
             input_message_content=InputTextMessageContent(
                 Data.text_help_menu.format(len(CMD_HELP))
             ),
@@ -152,7 +154,7 @@ async def inline_query_handler(client: Client, query):
         answers = []
         if text.strip() == "":
             return
-        elif text.split()[0] == "awake":
+        elif text.split()[0] == "alive":
             answerss = await alive_function(query, answers)
             await client.answer_inline_query(query.id, results=answerss, cache_time=10)
         elif string_given.startswith("helper"):
@@ -161,7 +163,7 @@ async def inline_query_handler(client: Client, query):
         elif string_given.startswith("ping"):
             answers = await ping_function(query, answers)
             await client.answer_inline_query(query.id, results=answers, cache_time=5)
-        elif string_given.startswith("alive"):
+        elif string_given.startswith("kar"):
             answers = await karman_function(query, answers)
             await client.answer_inline_query(query.id, results=answers, cache_time=0)
     except Exception as e:
