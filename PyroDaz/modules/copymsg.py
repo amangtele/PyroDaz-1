@@ -153,9 +153,10 @@ add_command_help(
     [
         [
             "copy <link protected channel.>",
-            "Copy anything from the protected channel.",
-            "copybot <reply message>",
-            "getmsg <get the photo on the timer.>",
+            "Copy anything from the protected channel."],
+        [   "copybot <reply message>",
+            "Copy anything from the protected channel."],
+        [   "getmsg <get the photo on the timer.>",
             "get the photo on the timer.",
           
         ],
