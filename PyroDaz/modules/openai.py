@@ -4,7 +4,7 @@ from pyrogram import Client as mang
 
 from PyroDaz.helpers.cmd import *
 from pyrogram.errors import MessageNotModified
-from PyroDaz.helper.what import *
+from PyroDaz.helpers.what import *
 
 from PyroDaz.helpers.basic import *
 from PyroDaz.helpers.adminHelpers import DEVS
