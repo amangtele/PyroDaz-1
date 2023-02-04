@@ -241,3 +241,13 @@ async def resize_media(media: str, video: bool, fast_forward: bool) -> str:
     image.save(resized_photo)
     os.remove(media)
     return resized_photo
+
+
+async def edit_delete(message: Message, text, time=None):
+    time = time
+    msg = await edit_or_reply(message, text)
+    await asyncio.sleep(time)
+    return await msg.delete()
+
+
+eod = edit_delete
