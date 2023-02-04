@@ -6,7 +6,7 @@ from PyroDaz.helper.cmd import *
 from pyrogram.errors import MessageNotModified
 from PyroDaz.helper.what import *
 
-from PyroDaz.helper.basic import *
+from PyroDaz.helpers.basic import *
 from PyroDaz.helpers.adminHelpers import DEVS
 from config import BLACKLIST_GCAST
 from .help import add_command_help
