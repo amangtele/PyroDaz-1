@@ -1,13 +1,12 @@
 import traceback
 
 from pyrogram import Client, filters
-from pyrogram.errors import MessageDeleteForbidden
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
-from PyroDaz import CMD_HELP, app
-from PyroDaz.helpers.data import Data
-from PyroDaz.helpers.inline import cb_wrapper, paginate_help
-from PyroDaz import ids as users
+from ProjectMan import CMD_HELP, app
+from ProjectMan.helpers.data import Data
+from ProjectMan.helpers.inline import cb_wrapper, paginate_help
+from ProjectMan import ids as users
 
 @Client.on_callback_query()
 async def _callbacks(_, callback_query: CallbackQuery):
@@ -21,7 +20,7 @@ async def _callbacks(_, callback_query: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(buttons),
         )
     elif query == "close":
-        await app.edit_inline_text(callback_query.inline_message_id, "")
+        await app.edit_inline_text(callback_query.inline_message_id, "**— CLOSED**")
         return
     elif query == "close_help":
         if callback_query.from_user.id not in users:
