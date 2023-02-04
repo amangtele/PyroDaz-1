@@ -1,6 +1,6 @@
 import glob
 from os.path import dirname, isfile
-
+from .help import add_command_help
 
 def __list_all_modules():
     work_dir = dirname(__file__)
