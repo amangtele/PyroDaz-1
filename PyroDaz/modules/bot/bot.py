@@ -3,10 +3,10 @@ import traceback
 from pyrogram import Client, filters
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
-from ProjectMan import CMD_HELP, app
-from ProjectMan.helpers.data import Data
-from ProjectMan.helpers.inline import cb_wrapper, paginate_help
-from ProjectMan import ids as users
+from PyroDaz import CMD_HELP, app
+from PyroDaz.helpers.data import Data
+from PyroDaz.helpers.inline import cb_wrapper, paginate_help
+from PyroDaz import ids as users
 
 @Client.on_callback_query()
 async def _callbacks(_, callback_query: CallbackQuery):
@@ -58,10 +58,10 @@ async def _callbacks(_, callback_query: CallbackQuery):
 async def on_plug_in_cb(_, callback_query: CallbackQuery):
     modul_name = callback_query.matches[0].group(1)
     commands: dict = CMD_HELP[modul_name]
-    this_command = f"──「 **Help For {str(modul_name).upper()}** 」──\n\n"
+    this_command = f"**Document For {str(modul_name).upper()}**\n\n"
     for x in commands:
         this_command += f"  •  **Command:** `.{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
-    this_command += "© @About_db ✘ @xdbmusicbot"
+    this_command += " @About_db ✘ @xdbmusicbot"
     bttn = [
         [InlineKeyboardButton(text="Return", callback_data="reopen")],
     ]
