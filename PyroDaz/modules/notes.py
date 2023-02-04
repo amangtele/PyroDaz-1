@@ -63,12 +63,9 @@ async def panggil_notes(client, message):
 add_command_help(
     "notes",
     [
-        [
-            "notes: list all save notes",
-            "save: save the replied message as a notes with name notename",
-            "clear: clear note with this name",
-            "get: get the note with thus notename",
-          
-        ],
+        [f"{prefix}notes" "get all notes"],
+        [f"{prefix}clear <note_name>" "Delete a note"],
+        [f"{prefix}save <note_name> <reply>" "add a note."],
+        [f"{prefix}get <note_name>" "get a note."],
     ],
 )
