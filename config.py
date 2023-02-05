@@ -21,7 +21,7 @@ if not BLACKLIST_CHAT:
     BLACKLIST_CHAT = [-1001473548283, -1001434137371]
 BLACKLIST_GCAST = {int(x) for x in getenv("BLACKLIST_GCAST", "").split()}
 BOTLOG_CHATID = int(getenv("BOTLOG_CHATID") or 0)
-OPENAI_API = getenv("OPENAI_API", "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")
+OPENAI_API = getenv("OPENAI_API")
 BOT_TOKEN = getenv("BOT_TOKEN", None)
 ID_OWNER = getenv("ID_OWNER", "2056203142")
 GIT_TOKEN = getenv("GIT_TOKEN", "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")
