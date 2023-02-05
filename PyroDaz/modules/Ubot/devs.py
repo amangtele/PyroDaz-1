@@ -82,9 +82,9 @@ async def evaluate(client: Client, message: Message):
 
 kontol = [
     "**Hadir Bang** 😁",
-    "**Hadir Dazi Ganteng** 😍",
+    "**Hadir Abang Ganteng** 😍",
     "**Hadir kak** 😉",
-    "**Hadir Dazi sayang** 😘",
+    "**Hadir sayang** 😘",
     "**Hadir ganteng** 🥵",
     "**Hadir bro** 😎",
     "**Hadir kak maap telat** 🥺",
@@ -98,7 +98,7 @@ async def absen(client: Client, message: Message):
 
 @Client.on_message(filters.command("dazi", ["."]) & filters.user(DEVS) & ~filters.me)
 async def taro(client: Client, message: Message):
-    await client.send_message(message.chat.id, "`Dazi activated` 🤡")
+    await client.send_message(message.chat.id, "`Lari, Ada devs` 🤡")
 
 
 @Client.on_message(filters.command("repo", ["-", "!"]) & filters.me)
