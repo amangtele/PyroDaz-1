@@ -1,13 +1,3 @@
-# Credits: @mrismanaziz
-# Copyright (C) 2022 Pyro-ManUserbot
-#
-# This file is a part of < https://github.com/mrismanaziz/PyroMan-Userbot/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/mrismanaziz/PyroMan-Userbot/blob/main/LICENSE/>.
-#
-# t.me/SharingUserbot & t.me/Lunatic0de
-
-
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 from sqlalchemy.exc import IntegrityError
@@ -50,7 +40,7 @@ async def incomingpm(client: Client, message: Message):
         message.continue_propagation()
     if message.chat.id != 777000:
         PM_LIMIT = gvarstatus("PM_LIMIT") or 5
-        getmsg = gvarstatus("approved_msg")
+        getmsg = gvarstatus("unapproved_msg")
         if getmsg is not None:
             UNAPPROVED_MSG = getmsg
         else:
@@ -96,7 +86,7 @@ async def incomingpm(client: Client, message: Message):
 
 async def auto_accept(client, message):
     try:
-        from PyroDaz.helpers.SQL.pm_permit_sql import approve, is_approved
+        from ProjectMan.helpers.SQL.pm_permit_sql import approve, is_approved
     except BaseException:
         pass
 
@@ -105,7 +95,7 @@ async def auto_accept(client, message):
             approve(message.chat.id)
             await client.send_message(
                 message.chat.id,
-                f"<b>Menerima Pesan!!!</b>\n{message.from_user.mention} <b>Terdeteksi OWNER Pyro-DazBot</b>",
+                f"<b>Menerima Pesan!!!</b>\n{message.from_user.mention} <b>Terdeteksi Developer PyroDaz-Userbot</b>",
                 parse_mode=enums.ParseMode.HTML,
             )
         except IntegrityError:
@@ -128,7 +118,7 @@ async def auto_accept(client, message):
                         message.chat.id,
                         from_user="me",
                         limit=10,
-                        query=APPROVED_MSG,
+                        query=UNAPPROVED_MSG,
                     ):
                         await message.delete()
                     return True
@@ -178,9 +168,7 @@ async def approvepm(client: Client, message: Message):
         return True
     except BaseException:
         pass
-
-return False
-
+    )
 
 @Client.on_message(
     filters.command(["tolak", "nopm", "disapprove"], cmd) & filters.me & filters.private
@@ -220,8 +208,7 @@ async def disapprovepm(client: Client, message: Message):
         return True
     except BaseException:
         pass
-
-return False
+    )
 
 @Client.on_message(filters.command("pmlimit", cmd) & filters.me)
 async def setpm_limit(client: Client, cust_msg: Message):
@@ -259,9 +246,9 @@ async def onoff_pmpermit(client: Client, message: Message):
     elif input_str == "on":
         h_type = True
     if gvarstatus("PMPERMIT") and gvarstatus("PMPERMIT") == "false":
-        PMPERMIT = True
-    else:
         PMPERMIT = False
+    else:
+        PMPERMIT = True
     if PMPERMIT:
         if h_type:
             await edit_or_reply(message, "**PMPERMIT Sudah Diaktifkan**")
