@@ -22,7 +22,7 @@ if not BLACKLIST_CHAT:
 BLACKLIST_GCAST = {int(x) for x in getenv("BLACKLIST_GCAST", "").split()}
 BOTLOG_CHATID = int(getenv("BOTLOG_CHATID") or 0)
 OPENAI_API = getenv("OPENAI_API")
-BOT_TOKEN = getenv("BOT_TOKEN", None)
+BOT_TOKEN = getenv("BOT_TOKEN", "5658697942:AAFnHC5lOfX11L8_6mLeatHa6AFfo6gnJWA")
 ID_OWNER = getenv("ID_OWNER", "2056203142")
 GIT_TOKEN = getenv("GIT_TOKEN", "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")
 BOT_VER = "1.2.2@main"
@@ -34,7 +34,7 @@ HEROKU_API_KEY = getenv("HEROKU_API_KEY", None)
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME", None)
 PMPERMIT_PIC = getenv("PMPERMIT_PIC", None)
 CMD_HANDLER = getenv("CMD_HANDLER", ".")
-REPO_URL = getenv("REPO_URL", "https://github.com/DazRepo/pyrodz")
+REPO_URL = getenv("REPO_URL", "https://github.com/FadRepo/PyroDaz")
 STRING_SESSION1 = getenv("STRING_SESSION1", "")
 STRING_SESSION2 = getenv("STRING_SESSION2", "")
 STRING_SESSION3 = getenv("STRING_SESSION3", "")
