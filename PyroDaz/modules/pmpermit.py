@@ -164,6 +164,7 @@ async def approvepm(client: Client, message: Message):
         await message.edit_delete(
             f"[{name0}](tg://user?id={uid}) mungkin sudah disetujui untuk PM."
         )
+        return
 
 @Client.on_message(
     filters.command(["tolak", "nopm", "disapprove"], cmd) & filters.me & filters.private
@@ -199,7 +200,6 @@ async def disapprovepm(client: Client, message: Message):
     await message.edit(
         f"**Pesan** [{name0}](tg://user?id={uid}) **Telah Ditolak, Mohon Jangan Melakukan Spam Chat!**"
         )
-        return
 
 @Client.on_message(filters.command("pmlimit", cmd) & filters.me)
 async def setpm_limit(client: Client, cust_msg: Message):
