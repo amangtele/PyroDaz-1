@@ -27,7 +27,6 @@ from config import (
     API_HASH,
     API_ID,
     DB_URL,
-    BOTLOG_CHATID,
     STRING_SESSION1,
     STRING_SESSION2,
     STRING_SESSION3,
@@ -93,10 +92,6 @@ if not BOT_TOKEN:
    LOGGER(__name__).error("WARNING: BOT TOKEN TIDAK DITEMUKAN, SHUTDOWN BOT")
    sys.exit
 
-if BOTLOG_CHATID:
-   BOTLOG_CHATID = BOTLOG_CHATID
-else:
-   BOTLOG_CHATID = "me"
 
 LOOP = asyncio.get_event_loop()
 
