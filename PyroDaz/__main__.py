@@ -4,7 +4,7 @@ from uvloop import install
 
 from config import BOT_VER, CMD_HANDLER
 from PyroDaz.modules import ALL_MODULES
-from PyroDaz import BOTLOG_CHATID, LOGGER, LOOP, aiosession, app, bots, ids
+from PyroDaz import LOGGER, LOOP, aiosession, app, bots, ids
 from PyroDaz.modules.basic import join
 
 MSG_ON = """
@@ -25,10 +25,6 @@ async def main():
             await bot.start()
             ex = await bot.get_me()
             await join(bot)
-            try:
-                await bot.send_message(BOTLOG_CHATID, MSG_ON.format(BOT_VER, CMD_HANDLER))
-            except BaseException:
-                pass
             print(f"User Mode {ex.first_name} | {ex.id} ")
             ids.append(ex.id)
         except Exception as e:
