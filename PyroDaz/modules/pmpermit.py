@@ -1,3 +1,13 @@
+# Credits: @mrismanaziz
+# Copyright (C) 2022 Pyro-ManUserbot
+#
+# This file is a part of < https://github.com/mrismanaziz/PyroMan-Userbot/ >
+# PLease read the GNU Affero General Public License in
+# <https://www.github.com/mrismanaziz/PyroMan-Userbot/blob/main/LICENSE/>.
+#
+# t.me/SharingUserbot & t.me/Lunatic0de
+
+
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 from sqlalchemy.exc import IntegrityError
@@ -5,7 +15,7 @@ from sqlalchemy.exc import IntegrityError
 from config import CMD_HANDLER as cmd
 from PyroDaz import TEMP_SETTINGS
 from PyroDaz.helpers.adminHelpers import DEVS
-from PyroDaz.helpers.basic import edit_delete, edit_or_reply
+from PyroDaz.helpers.basic import edit_or_reply
 from PyroDaz.helpers.SQL.globals import addgvar, gvarstatus
 from PyroDaz.helpers.tools import get_arg
 
@@ -86,7 +96,7 @@ async def incomingpm(client: Client, message: Message):
 
 async def auto_accept(client, message):
     try:
-        from ProjectMan.helpers.SQL.pm_permit_sql import approve, is_approved
+        from PyroDaz.helpers.SQL.pm_permit_sql import approve, is_approved
     except BaseException:
         pass
 
@@ -95,7 +105,7 @@ async def auto_accept(client, message):
             approve(message.chat.id)
             await client.send_message(
                 message.chat.id,
-                f"<b>Menerima Pesan!!!</b>\n{message.from_user.mention} <b>Terdeteksi Developer PyroDaz-Userbot</b>",
+                f"<b>Menerima Pesan!!!</b>\n{message.from_user.mention} <b>Terdeteksi OWNER Pyro-DazBot</b>",
                 parse_mode=enums.ParseMode.HTML,
             )
         except IntegrityError:
@@ -135,14 +145,14 @@ async def approvepm(client: Client, message: Message):
     try:
         from PyroDaz.helpers.SQL.pm_permit_sql import approve
     except BaseException:
-        await message.edit_delete("Running on Non-SQL mode!")
+        await message.edit("Running on Non-SQL mode!")
         return
 
     if message.reply_to_message:
         reply = message.reply_to_message
         replied_user = reply.from_user
         if replied_user.is_self:
-            await message.edit_delete("Anda tidak dapat menyetujui diri sendiri.")
+            await message.edit("Anda tidak dapat menyetujui diri sendiri.")
             return
         aname = replied_user.id
         name0 = str(replied_user.first_name)
@@ -150,7 +160,7 @@ async def approvepm(client: Client, message: Message):
     else:
         aname = message.chat
         if not aname.type == enums.ChatType.PRIVATE:
-            await message.edit_delete(
+            await message.edit(
                 "Saat ini Anda tidak sedang dalam PM dan Anda belum membalas pesan seseorang."
             )
             return
@@ -159,12 +169,13 @@ async def approvepm(client: Client, message: Message):
 
     try:
         approve(uid)
-        await message.edit_delete(f"**Menerima Pesan Dari** [{name0}](tg://user?id={uid})!")
+        await message.edit(f"**Menerima Pesan Dari** [{name0}](tg://user?id={uid})!")
     except IntegrityError:
-        await message.edit_delete(
+        await message.edit(
             f"[{name0}](tg://user?id={uid}) mungkin sudah disetujui untuk PM."
         )
         return
+
 
 @Client.on_message(
     filters.command(["tolak", "nopm", "disapprove"], cmd) & filters.me & filters.private
@@ -173,14 +184,14 @@ async def disapprovepm(client: Client, message: Message):
     try:
         from PyroDaz.helpers.SQL.pm_permit_sql import dissprove
     except BaseException:
-        await message.edit_delete("Running on Non-SQL mode!")
+        await message.edit("Running on Non-SQL mode!")
         return
 
     if message.reply_to_message:
         reply = message.reply_to_message
         replied_user = reply.from_user
         if replied_user.is_self:
-            await message.edit_delete("Anda tidak bisa menolak dirimu sendiri.")
+            await message.edit("Anda tidak bisa menolak dirimu sendiri.")
             return
         aname = replied_user.id
         name0 = str(replied_user.first_name)
@@ -188,7 +199,7 @@ async def disapprovepm(client: Client, message: Message):
     else:
         aname = message.chat
         if not aname.type == enums.ChatType.PRIVATE:
-            await message.edit_delete(
+            await message.edit(
                 "Saat ini Anda tidak sedang dalam PM dan Anda belum membalas pesan seseorang."
             )
             return
@@ -199,7 +210,8 @@ async def disapprovepm(client: Client, message: Message):
 
     await message.edit(
         f"**Pesan** [{name0}](tg://user?id={uid}) **Telah Ditolak, Mohon Jangan Melakukan Spam Chat!**"
-        )
+    )
+
 
 @Client.on_message(filters.command("pmlimit", cmd) & filters.me)
 async def setpm_limit(client: Client, cust_msg: Message):
@@ -210,7 +222,7 @@ async def setpm_limit(client: Client, cust_msg: Message):
     try:
         from PyroDaz.helpers.SQL.globals import addgvar
     except AttributeError:
-        await cust_msg.edit_delete("**Running on Non-SQL mode!**")
+        await cust_msg.edit("**Running on Non-SQL mode!**")
         return
     input_str = (
         cust_msg.text.split(None, 1)[1]
@@ -221,12 +233,12 @@ async def setpm_limit(client: Client, cust_msg: Message):
         else None
     )
     if not input_str:
-        return await cust_msg.edit_delete("**Harap masukan angka untuk PM_LIMIT.**")
+        return await cust_msg.edit("**Harap masukan angka untuk PM_LIMIT.**")
     Man = await cust_msg.edit("`Processing...`")
     if input_str and not input_str.isnumeric():
-        return await Man.v("**Harap masukan angka untuk PM_LIMIT.**")
+        return await Man.edit("**Harap masukan angka untuk PM_LIMIT.**")
     addgvar("PM_LIMIT", input_str)
-    await Man.edit_delete(f"**Set PM limit to** `{input_str}`")
+    await Man.edit(f"**Set PM limit to** `{input_str}`")
 
 
 @Client.on_message(filters.command(["pmpermit", "pmguard"], cmd) & filters.me)
@@ -257,24 +269,24 @@ async def onoff_pmpermit(client: Client, message: Message):
 async def setpmpermit(client: Client, cust_msg: Message):
     """Set your own Unapproved message"""
     if gvarstatus("PMPERMIT") and gvarstatus("PMPERMIT") == "false":
-        return await cust_msg.edit_delete(
+        return await cust_msg.edit(
             "**Anda Harus Menyetel Var** `PM_AUTO_BAN` **Ke** `True`\n\n**Bila ingin Mengaktifkan PMPERMIT Silahkan Ketik:** `.setvar PM_AUTO_BAN True`"
         )
     try:
         import PyroDaz.helpers.SQL.globals as sql
     except AttributeError:
-        await cust_msg.edit_delete("**Running on Non-SQL mode!**")
+        await cust_msg.edit("**Running on Non-SQL mode!**")
         return
-    Man = await cust_msg.edit_delete("`Processing...`")
+    Man = await cust_msg.edit("`Processing...`")
     custom_message = sql.gvarstatus("unapproved_msg")
     message = cust_msg.reply_to_message
     if custom_message is not None:
         sql.delgvar("unapproved_msg")
     if not message:
-        return await Man.edit_delete("**Mohon Reply Ke Pesan**")
+        return await Man.edit("**Mohon Reply Ke Pesan**")
     msg = message.text
     sql.addgvar("unapproved_msg", msg)
-    await Man.edit_delete("**Pesan Berhasil Disimpan Ke Room Chat**")
+    await Man.edit("**Pesan Berhasil Disimpan Ke Room Chat**")
 
 
 @Client.on_message(filters.command("getpmpermit", cmd) & filters.me)
@@ -286,14 +298,14 @@ async def get_pmermit(client: Client, cust_msg: Message):
     try:
         import PyroDaz.helpers.SQL.globals as sql
     except AttributeError:
-        await cust_msg.edit_delete("**Running on Non-SQL mode!**")
+        await cust_msg.edit("**Running on Non-SQL mode!**")
         return
-    Man = await cust_msg.edit_delete("`Processing...`")
+    Man = await cust_msg.edit("`Processing...`")
     custom_message = sql.gvarstatus("unapproved_msg")
     if custom_message is not None:
-        await Man.edit_delete("**Pesan PMPERMIT Yang Sekarang:**" f"\n\n{custom_message}")
+        await Man.edit("**Pesan PMPERMIT Yang Sekarang:**" f"\n\n{custom_message}")
     else:
-        await Man.edit_delete(
+        await Man.edit(
             "**Anda Belum Menyetel Pesan Costum PMPERMIT,**\n"
             f"**Masih Menggunakan Pesan PM Default:**\n\n{DEF_UNAPPROVED_MSG}"
         )
