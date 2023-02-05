@@ -50,7 +50,7 @@ async def incomingpm(client: Client, message: Message):
         message.continue_propagation()
     if message.chat.id != 777000:
         PM_LIMIT = gvarstatus("PM_LIMIT") or 5
-        getmsg = gvarstatus("unapproved_msg")
+        getmsg = gvarstatus("approved_msg")
         if getmsg is not None:
             UNAPPROVED_MSG = getmsg
         else:
@@ -128,7 +128,7 @@ async def auto_accept(client, message):
                         message.chat.id,
                         from_user="me",
                         limit=10,
-                        query=UNAPPROVED_MSG,
+                        query=APPROVED_MSG,
                     ):
                         await message.delete()
                     return True
@@ -173,8 +173,13 @@ async def approvepm(client: Client, message: Message):
     except IntegrityError:
         await message.edit(
             f"[{name0}](tg://user?id={uid}) mungkin sudah disetujui untuk PM."
-        )
-        return
+        ):
+            await message.delete()
+        return True
+    except BaseException:
+        pass
+
+return False
 
 
 @Client.on_message(
@@ -210,8 +215,13 @@ async def disapprovepm(client: Client, message: Message):
 
     await message.edit(
         f"**Pesan** [{name0}](tg://user?id={uid}) **Telah Ditolak, Mohon Jangan Melakukan Spam Chat!**"
-    )
+        ):
+            await message.delete()
+        return True
+    except BaseException:
+        pass
 
+return False
 
 @Client.on_message(filters.command("pmlimit", cmd) & filters.me)
 async def setpm_limit(client: Client, cust_msg: Message):
@@ -249,9 +259,9 @@ async def onoff_pmpermit(client: Client, message: Message):
     elif input_str == "on":
         h_type = True
     if gvarstatus("PMPERMIT") and gvarstatus("PMPERMIT") == "false":
-        PMPERMIT = False
-    else:
         PMPERMIT = True
+    else:
+        PMPERMIT = False
     if PMPERMIT:
         if h_type:
             await edit_or_reply(message, "**PMPERMIT Sudah Diaktifkan**")
