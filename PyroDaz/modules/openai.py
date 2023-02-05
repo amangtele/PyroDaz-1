@@ -47,7 +47,7 @@ async def openai(c, m):
         await msg.edit("**Kalo nanya yang bener dikit kek...**")
 
 add_command_help(
-    "OpenAI",
+    "openai",
     [
         [f"{cmds}ask [question]", "to ask questions using the API."],
     ],
