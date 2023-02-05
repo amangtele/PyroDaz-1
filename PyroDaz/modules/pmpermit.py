@@ -44,17 +44,17 @@ async def incomingpm(client: Client, message: Message):
     except BaseException:
         pass
 
-    if gvarstatus("PMPERMIT") and gvarstatus("PMPERMIT") == "false":
+    if gvarstatus("PMPERMIT") and gvarstatus("PMPERMIT") == "true":
         return
     if await auto_accept(client, message) or message.from_user.is_self:
         message.continue_propagation()
     if message.chat.id != 777000:
         PM_LIMIT = gvarstatus("PM_LIMIT") or 5
-        getmsg = gvarstatus("unapproved_msg")
+        getmsg = gvarstatus("approved_msg")
         if getmsg is not None:
-            UNAPPROVED_MSG = getmsg
+            APPROVED_MSG = getmsg
         else:
-            UNAPPROVED_MSG = DEF_UNAPPROVED_MSG
+            APPROVED_MSG = DEF_UNAPPROVED_MSG
 
         apprv = is_approved(message.chat.id)
         if not apprv and message.text != UNAPPROVED_MSG:
