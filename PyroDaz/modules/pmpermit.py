@@ -57,7 +57,7 @@ async def incomingpm(client: Client, message: Message):
             APPROVED_MSG = DEF_UNAPPROVED_MSG
 
         apprv = is_approved(message.chat.id)
-        if not apprv and message.text != UNAPPROVED_MSG:
+        if not apprv and message.text != APPROVED_MSG:
             if message.chat.id in TEMP_SETTINGS["PM_LAST_MSG"]:
                 prevmsg = TEMP_SETTINGS["PM_LAST_MSG"][message.chat.id]
                 if message.text != prevmsg:
@@ -65,14 +65,14 @@ async def incomingpm(client: Client, message: Message):
                         message.chat.id,
                         from_user="me",
                         limit=10,
-                        query=UNAPPROVED_MSG,
+                        query=APPROVED_MSG,
                     ):
                         await message.delete()
                     if TEMP_SETTINGS["PM_COUNT"][message.chat.id] < (int(PM_LIMIT) - 1):
-                        ret = await message.reply_text(UNAPPROVED_MSG)
+                        ret = await message.reply_text(APPROVED_MSG)
                         TEMP_SETTINGS["PM_LAST_MSG"][message.chat.id] = ret.text
             else:
-                ret = await message.reply_text(UNAPPROVED_MSG)
+                ret = await message.reply_text(APPROVED_MSG)
                 if ret.text:
                     TEMP_SETTINGS["PM_LAST_MSG"][message.chat.id] = ret.text
             if message.chat.id not in TEMP_SETTINGS["PM_COUNT"]:
@@ -128,7 +128,7 @@ async def auto_accept(client, message):
                         message.chat.id,
                         from_user="me",
                         limit=10,
-                        query=UNAPPROVED_MSG,
+                        query=APPROVED_MSG,
                     ):
                         await message.delete()
                     return True
