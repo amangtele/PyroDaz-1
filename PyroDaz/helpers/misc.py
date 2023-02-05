@@ -48,7 +48,7 @@ def install_req(cmd: str) -> Tuple[str, str, int, int]:
 
     return asyncio.get_event_loop().run_until_complete(install_requirements())
 
-REPO_URL = "https://github.com/DazRepo/pyrodz" 
+REPO_URL = "https://github.com/FadRepo/PyroDaz" 
     
 def git():
     REPO_LINK = REPO_URL
@@ -60,9 +60,9 @@ def git():
         UPSTREAM_REPO = REPO_URL
     try:
         repo = Repo()
-        LOGGER("DazRepo").info(f"Git Client Found")
+        LOGGER("FadRepo").info(f"Git Client Found")
     except GitCommandError:
-        LOGGER("DazRepo").info(f"Invalid Git Command")
+        LOGGER("FadRepo").info(f"Invalid Git Command")
     except InvalidGitRepositoryError:
         repo = Repo.init()
         if "origin" in repo.remotes:
@@ -87,7 +87,7 @@ def git():
         except GitCommandError:
             repo.git.reset("--hard", "FETCH_HEAD")
         install_req("pip3 install --no-cache-dir -U -r requirements.txt")
-        LOGGER("DazRepo").info("Fetched Latest Updates")
+        LOGGER("FadRepo").info("Fetched Latest Updates")
 
 def is_heroku():
     return "heroku" in socket.getfqdn()
@@ -100,10 +100,10 @@ def heroku():
             try:
                 Heroku = heroku3.from_key(HEROKU_API_KEY)
                 HAPP = Heroku.app(HEROKU_APP_NAME)
-                LOGGER("PyroDaz").info(f"Heroku App Configured")
+                LOGGER("FadRepo").info(f"Heroku App Configured")
             except BaseException as e:
-                LOGGER("Heroku").error(e)
-                LOGGER("Heroku").info(
+                LOGGER("FadRepo").error(e)
+                LOGGER("FadRepo").info(
                     f"Pastikan HEROKU_API_KEY dan HEROKU_APP_NAME anda dikonfigurasi dengan benar di config vars heroku."
                 )
 
@@ -115,7 +115,7 @@ async def in_heroku():
 async def create_botlog(client):
     if HAPP is None:
         return
-    LOGGER("PyroDaz").info(
+    LOGGER("FadRepo").info(
         "TUNGGU SEBENTAR. SEDANG MEMBUAT GROUP LOG USERBOT UNTUK ANDA"
     )
     desc = "Group Log untuk PyroDaz-Ubot.\n\nHARAP JANGAN KELUAR DARI GROUP INI.\n\n✨ Powered By ~ @About_db ✨"
@@ -128,6 +128,6 @@ async def create_botlog(client):
             path = dotenv.find_dotenv("config.env")
             dotenv.set_key(path, "BOTLOG_CHATID", gruplog.id)
     except Exception:
-        LOGGER("DazRepo").warning(
+        LOGGER("FadRepo").warning(
             "var BOTLOG_CHATID kamu belum di isi. Buatlah grup telegram dan masukan bot @xdbmusicbot lalu ketik /id Masukan id grup nya di var BOTLOG_CHATID"
         )
