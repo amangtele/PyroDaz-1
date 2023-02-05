@@ -8,11 +8,9 @@ from PyroDaz import BOTLOG_CHATID, LOGGER, LOOP, aiosession, app, bots, ids
 from PyroDaz.modules.basic import join
 
 MSG_ON = """
-🧑‍💻 **PyroDaz-Ubot Berhasil Di Aktifkan** 🧑‍💻
-━━
+✨ **Congratulations, Now your Premium userbot is active!**
 ➠ **Userbot Version -** `{}`
-➠ **Ketik** `{}alive` untuk Mengecheck Bot
-━━
+➠ **Type** `{}alive` untuk Mengecheck Bot
 """
 
 
@@ -31,7 +29,7 @@ async def main():
                 await bot.send_message(BOTLOG_CHATID, MSG_ON.format(BOT_VER, CMD_HANDLER))
             except BaseException:
                 pass
-            print(f"Started as {ex.first_name} | {ex.id} ")
+            print(f"User Mode {ex.first_name} | {ex.id} ")
             ids.append(ex.id)
         except Exception as e:
             print(f"{e}")
@@ -40,6 +38,6 @@ async def main():
 
 
 if __name__ == "__main__":
-    LOGGER("logs").info("Ubot Telah Hidup")
+    LOGGER("logs").info("Userbot Is Actived!")
     install()
     LOOP.run_until_complete(main())
