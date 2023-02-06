@@ -60,16 +60,18 @@ async def alive_function(message: Message, answers):
 <b>         Bot version:</b> <code>{BOT_VER}</code>
 """
     answers.append(
+        InlineQueryResultArticle(
             title="Alive",
             description="Check Bot's Stats",
             thumb_url="https://te.legra.ph/file/2a9123e82f02807224fe7.jpg",
                 msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
+             ),
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("ʜᴇʟᴘ", callback_data="helper")]]
+                [[InlineKeyboardButton("──「 ʜᴇʟᴘ 」──", callback_data="helper")]]
             ),
         )
+    )
     return answers
-
 
 async def ping_function(message: Message, answers):
     start = datetime.now()
