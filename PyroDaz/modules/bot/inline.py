@@ -13,8 +13,6 @@ from pyrogram.enums import ParseMode
 from pyrogram.types import (
     InlineKeyboardButton,
     InlineKeyboardMarkup,
-    InlineQueryResultArticle,
-    InputTextMessageContent,
     Message,
 )
 from PyroDaz.helpers.data import Data
