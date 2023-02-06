@@ -19,6 +19,8 @@ from PyroDaz.helpers.SQL.pm_permit_sql import approve, dissprove, is_approved
 from PyroDaz.helpers.tools import eod
 from PyroDaz.utils import *
 
+from .help import add_command_help
+
 PM_AUTO_BAN = sq.gvarstatus("PM_AUTO_BAN") or "True"
 
 
