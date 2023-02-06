@@ -4,8 +4,6 @@ from traceback import format_exc
 from pyrogram.errors import MessageNotModified
 from pyrogram.types import (
     InlineKeyboardButton,
-    InlineQueryResultArticle,
-    InputTextMessageContent,
 )
 
 from PyroDaz import ids as list_users
