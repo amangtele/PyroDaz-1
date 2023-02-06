@@ -21,7 +21,7 @@ from PyroDaz.utils import *
 
 from .help import add_command_help
 
-PM_AUTO_BAN = sq.gvarstatus("PM_AUTO_BAN") or "False"
+PM_AUTO_BAN = sq.gvarstatus("PM_AUTO_BAN") or "off"
 
 
 DEF_UNAPPROVED_MSG = (
@@ -36,7 +36,7 @@ DEF_UNAPPROVED_MSG = (
     ~filters.me & filters.private & ~filters.bot & filters.incoming, group=69
 )
 async def incomingpm(client: Client, message: Message):
-    if sq.gvarstatus("PM_AUTO_BAN") and sq.gvarstatus("PM_AUTO_BAN") == "False":
+    if sq.gvarstatus("PM_AUTO_BAN") and sq.gvarstatus("PM_AUTO_BAN") == "off":
         message.continue_propagation()
     else:
         if message.chat.id != 777000:
