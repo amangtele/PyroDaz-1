@@ -60,7 +60,6 @@ async def alive_function(message: Message, answers):
 <b>         Bot version:</b> <code>{BOT_VER}</code>
 """
     answers.append(
-        InlineQueryResultArticle(
             title="Alive",
             description="Check Bot's Stats",
             thumb_url="https://te.legra.ph/file/2a9123e82f02807224fe7.jpg",
@@ -87,7 +86,6 @@ async def ping_function(message: Message, answers):
         f"├•ᴅᴜʀᴀᴛɪᴏɴ :</b> <code>{duration}ms</code>\n"
     )
     answers.append(
-        InlineQueryResultArticle(
             title="ping",
             description="Check Bot's Stats",
             thumb_url="https://te.legra.ph/file/2a9123e82f02807224fe7.jpg",
@@ -111,7 +109,6 @@ async def karman_function(message: Message, answers):
         f"ㅤㅤㅤㅤbranch: {branch} \n\n"
     )
     answers.append(
-        InlineQueryResultArticle(
             title="kar",
             description="Check Bot's Stats",
             thumb_url="https://te.legra.ph/file/2a9123e82f02807224fe7.jpg",
@@ -129,7 +126,6 @@ async def karman_function(message: Message, answers):
 async def help_function(answers):
     bttn = paginate_help(0, CMD_HELP, "helpme")
     answers.append(
-        InlineQueryResultArticle(
             title="Help Article!",
             description="Check Command List & Help",
             thumb_url="https://te.legra.ph/file/2a9123e82f02807224fe7.jpg",
