@@ -13,10 +13,12 @@ from pyrogram.enums import ParseMode
 from pyrogram.types import (
     InlineKeyboardButton,
     InlineKeyboardMarkup,
+    InlineQueryResultArticle,
+    InputTextMessageContent,
     Message,
 )
 from PyroDaz.helpers.data import Data
-from PyroDaz.helpers.inline import paginate_help
+from PyroDaz.helpers.inline import inline_wrapper, paginate_help
 from config import BOT_VER, BRANCH as branch
 from PyroDaz import CMD_HELP, StartTime, app
 
@@ -50,7 +52,7 @@ async def get_readable_time(seconds: int) -> str:
 async def alive_function(message: Message, answers):
     uptime = await get_readable_time((time.time() - StartTime))
     msg = f"""
-<b> 𝙋𝙮𝙧𝙤𝙇𝙞𝙣𝙚-𝙍𝙤𝙗𝙤𝙩 </b>
+<b> 𝙋𝙮𝙧𝙤𝙇𝙞𝙣𝙚_𝙐𝙗𝙤𝙩 </b>
 <b>       Status : 𝘗𝘳𝘦𝘮𝘪𝘶𝘮 [Devs]</b>
 <b>         User :</b> {message.from_user.mention}
 <b>         Plugins :</b> <code>{len(CMD_HELP)} Modules</code>
@@ -60,15 +62,20 @@ async def alive_function(message: Message, answers):
 <b>         Bot version:</b> <code>{BOT_VER}</code>
 """
     answers.append(
+        InlineQueryResultArticle(
             title="Alive",
             description="Check Bot's Stats",
-            thumb_url="https://te.legra.ph/file/2a9123e82f02807224fe7.jpg",
+            thumb_url="https://telegra.ph//file/5f3929a7c65ed2dfd93db.jpg",
+            input_message_content=InputTextMessageContent(
                 msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
-             ),
+            ),
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("ʜᴇʟᴘ", callback_data="helper")]]
+            ),
         )
+    )
     return answers
+
 
 async def ping_function(message: Message, answers):
     start = datetime.now()
@@ -76,37 +83,16 @@ async def ping_function(message: Message, answers):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     msg = (
-        f"<b>𝙋𝙮𝙧𝙤𝙇𝙞𝙣𝙚-𝙍𝙤𝙗𝙤𝙩 </b>\n\n"
+        f"<b>𝙋𝙮𝙧𝙤𝙇𝙞𝙣𝙚_𝙐𝙗𝙤𝙩</b>\n\n"
         f"<b>🇮🇩ᴋᴏɴᴛᴏʟ!!<b>\n"
         f"├•ᴜᴘᴛɪᴍᴇ :</b> <code>{uptime}</code>\n"
         f"├•ᴅᴜʀᴀᴛɪᴏɴ :</b> <code>{duration}ms</code>\n"
     )
     answers.append(
+        InlineQueryResultArticle(
             title="ping",
             description="Check Bot's Stats",
-            thumb_url="https://te.legra.ph/file/2a9123e82f02807224fe7.jpg",
-            input_message_content=InputTextMessageContent(
-                msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
-            ),
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("Support", url="t.me/obrolansuar")]]
-            ),
-        )
-    return answers
-
-
-async def karman_function(message: Message, answers):
-    msg = (
-        f"𝙋𝙮𝙧𝙤𝙇𝙞𝙣𝙚-𝙍𝙤𝙗𝙤𝙩 \n"
-        "ㅤㅤStatus : 𝘗𝘳𝘦𝘮𝘪𝘶𝘮 \n"
-        f"ㅤㅤㅤㅤmodules:</b> <code>{len(modules)} Modules</code> \n"
-        f"ㅤㅤㅤㅤbot version: {BOT_VER} \n"
-        f"ㅤㅤㅤㅤbranch: {branch} \n\n"
-    )
-    answers.append(
-            title="kar",
-            description="Check Bot's Stats",
-            thumb_url="https://te.legra.ph/file/2a9123e82f02807224fe7.jpg",
+            thumb_url="https://telegra.ph//file/5f3929a7c65ed2dfd93db.jpg",
             input_message_content=InputTextMessageContent(
                 msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
             ),
@@ -114,24 +100,52 @@ async def karman_function(message: Message, answers):
                 [[InlineKeyboardButton("Support", url="t.me/about_db")]]
             ),
         )
+    )
+    return answers
+
+
+async def karman_function(message: Message, answers):
+    msg = (
+        f"𝙋𝙮𝙧𝙤𝙇𝙞𝙣𝙚_𝙐𝙗𝙤𝙩 \n"
+        "ㅤㅤStatus : 𝘗𝘳𝘦𝘮𝘪𝘶𝘮 \n"
+        f"ㅤㅤㅤㅤmodules:</b> <code>{len(modules)} Modules</code> \n"
+        f"ㅤㅤㅤㅤbot version: {BOT_VER} \n"
+        f"ㅤㅤㅤㅤbranch: {branch} \n\n"
+    )
+    answers.append(
+        InlineQueryResultArticle(
+            title="kar",
+            description="Check Bot's Stats",
+            thumb_url="https://telegra.ph//file/5f3929a7c65ed2dfd93db.jpg",
+            input_message_content=InputTextMessageContent(
+                msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
+            ),
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton("Support", url="t.me/about_db")]]
+            ),
+        )
+    )
     return answers
 
 
 async def help_function(answers):
     bttn = paginate_help(0, CMD_HELP, "helpme")
     answers.append(
+        InlineQueryResultArticle(
             title="Help Article!",
             description="Check Command List & Help",
-            thumb_url="https://te.legra.ph/file/2a9123e82f02807224fe7.jpg",
+            thumb_url="https://telegra.ph//file/5f3929a7c65ed2dfd93db.jpg",
             input_message_content=InputTextMessageContent(
                 Data.text_help_menu.format(len(CMD_HELP))
             ),
             reply_markup=InlineKeyboardMarkup(bttn),
         )
+    )
     return answers
 
 
 @app.on_inline_query()
+@inline_wrapper
 async def inline_query_handler(client: Client, query):
     try:
         text = query.query.strip().lower()
