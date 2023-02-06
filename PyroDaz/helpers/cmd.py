@@ -4,7 +4,7 @@ from config import CMD_HANDLER as cmd
 
 PREFIX = ["^", "?", "-", "+"]
 
-cmd = [f"{cmd}"] # cmd custom
+cmd = f"{cmd}" # cmd custom
 
 command = filters.command
 
