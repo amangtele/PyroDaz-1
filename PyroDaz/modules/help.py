@@ -14,7 +14,6 @@ from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 
 from config import CMD_HANDLER
-from PyroDaz.helpers.cmd import *
 from PyroDaz import CMD_HELP, app
 from PyroDaz.helpers.PyroHelpers import ReplyCheck
 from PyroDaz.helpers.basic import edit_or_reply
