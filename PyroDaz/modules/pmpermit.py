@@ -42,11 +42,11 @@ async def incomingpm(client: Client, message: Message):
             PM_LIMIT = sq.gvarstatus("PM_LIMIT") or 5
             getmsg = sq.gvarstatus("approved_msg")
             if getmsg is not None:
-                UNAPPROVED_MSG = getmsg
+                DISAPPROVED_MSG = getmsg
             else:
-                UNAPPROVED_MSG = DEF_UNAPPROVED_MSG
+                DISAPPROVED_MSG = DEF_UNAPPROVED_MSG
             apprv = is_approved(message.chat.id)
-            if not apprv and message.text != UNAPPROVED_MSG:
+            if not apprv and message.text != DISAPPROVED_MSG:
                 if message.chat.id in TEMP_SETTINGS["PM_LAST_MSG"]:
                     prevmsg = TEMP_SETTINGS["PM_LAST_MSG"][message.chat.id]
                     if message.text != prevmsg:
@@ -54,16 +54,16 @@ async def incomingpm(client: Client, message: Message):
                             message.chat.id,
                             from_user="me",
                             limit=10,
-                            query=UNAPPROVED_MSG,
+                            query=DISAPPROVED_MSG,
                         ):
                             await message.delete()
                         if TEMP_SETTINGS["PM_COUNT"][message.chat.id] < (
                             int(PM_LIMIT) - 1
                         ):
-                            ret = await message.reply_text(UNAPPROVED_MSG)
+                            ret = await message.reply_text(DISAPPROVED_MSG)
                             TEMP_SETTINGS["PM_LAST_MSG"][message.chat.id] = ret.text
                 else:
-                    ret = await message.reply_text(UNAPPROVED_MSG)
+                    ret = await message.reply_text(DISAPPROVED_MSG)
                     if ret.text:
                         TEMP_SETTINGS["PM_LAST_MSG"][message.chat.id] = ret.text
                 if message.chat.id not in TEMP_SETTINGS["PM_COUNT"]:
