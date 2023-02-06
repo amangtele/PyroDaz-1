@@ -18,7 +18,7 @@ from pyrogram.types import (
     Message,
 )
 from PyroDaz.helpers.data import Data
-from PyroDaz.helpers.inline import inline_wrapper, paginate_help
+from PyroDaz.helpers.inline import paginate_help
 from config import BOT_VER, BRANCH as branch
 from PyroDaz import CMD_HELP, StartTime, app
 
@@ -145,7 +145,6 @@ async def help_function(answers):
 
 
 @app.on_inline_query()
-@inline_wrapper
 async def inline_query_handler(client: Client, query):
     try:
         text = query.query.strip().lower()
