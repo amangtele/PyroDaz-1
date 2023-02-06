@@ -21,7 +21,7 @@ from PyroDaz.utils import *
 
 from .help import add_command_help
 
-PM_AUTO_BAN = sq.gvarstatus("PM_AUTO_BAN") or "True"
+PM_AUTO_BAN = sq.gvarstatus("PM_AUTO_BAN") or "False"
 
 
 DEF_UNAPPROVED_MSG = (
