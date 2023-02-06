@@ -156,7 +156,7 @@ async def setemoji(client: Client, message: Message):
 
 
 add_command_help(
-    "alive",
+    "Alive",
     [
         [
             "alive",
