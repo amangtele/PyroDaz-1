@@ -1,10 +1,12 @@
 from pyrogram.types import InlineKeyboardButton
+from config import CMD_HANDLER
 from PyroDaz.helpers.cmd import *
+
 
 class Data:
 
     text_help_menu = (
-        f"**Command List & Help**\n**ㅤ Prefixes:** {cmd}"
+        f"**Command List & Help**\n**ㅤ Prefixes:** {CMD_HANDLER}"
         .replace(",", "")
         .replace("[", "")
         .replace("]", "")
