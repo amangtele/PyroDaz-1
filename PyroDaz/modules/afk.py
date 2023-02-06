@@ -134,7 +134,7 @@ async def no_longer_afk(client: Client, message: Message):
 
 
 add_command_help(
-    "afk",
+    "Afk",
     [
         [
             "afk <alasan>",
