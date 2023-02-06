@@ -4,6 +4,8 @@ from traceback import format_exc
 from pyrogram.errors import MessageNotModified
 from pyrogram.types import (
     InlineKeyboardButton,
+    InlineQueryResultArticle,
+    InputTextMessageContent,
 )
 
 from PyroDaz import ids as list_users
@@ -38,8 +40,58 @@ def paginate_help(page_number, loaded_modules, prefix):
                 InlineKeyboardButton(
                     text="⫷", callback_data=f"{prefix}_prev({modulo_page})"),
                 InlineKeyboardButton(
+                    text="ᴄʟᴏsᴇ", callback_data=f"close_help"),
+                InlineKeyboardButton(
                     text="⫸", callback_data=f"{prefix}_next({modulo_page})"),
             )
         ]
     return pairs
 
+
+def cb_wrapper(func):
+    async def wrapper(client, cb):
+        users = list_users
+        if cb.from_user.id not in users:
+            await cb.answer(
+                "No Access...",
+                cache_time=0,
+                show_alert=True,
+            )
+        else:
+            try:
+                await func(client, cb)
+            except MessageNotModified:
+                await cb.answer("🤔🧐")
+            except Exception:
+                print(format_exc())
+                await cb.answer(
+                    f"Oh No, SomeThing Isn't Right. Please Check Logs!",
+                    cache_time=0,
+                    show_alert=True,
+                )
+
+    return wrapper
+
+
+def inline_wrapper(func):
+    async def wrapper(client, inline_query):
+        users = list_users
+        if inline_query.from_user.id not in users:
+            await client.answer_inline_query(
+                inline_query.id,
+                cache_time=1,
+                results=[
+                    (
+                        InlineQueryResultArticle(
+                            title="Sorry, Friend You Can't Use Me!",
+                            input_message_content=InputTextMessageContent(
+                                "You cannot access this Bot"
+                            ),
+                        )
+                    )
+                ],
+            )
+        else:
+            await func(client, inline_query)
+
+    return wrapper
