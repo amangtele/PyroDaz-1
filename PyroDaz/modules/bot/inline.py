@@ -63,12 +63,10 @@ async def alive_function(message: Message, answers):
             title="Alive",
             description="Check Bot's Stats",
             thumb_url="https://te.legra.ph/file/2a9123e82f02807224fe7.jpg",
-            input_message_content=InputTextMessageContent(
                 msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
              ),
-            reply_markup=InlineKeyboardMarkup(
+            input_reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("ʜᴇʟᴘ", callback_data="helper")]]
-            ),
         )
     return answers
 
