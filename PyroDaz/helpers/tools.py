@@ -17,6 +17,8 @@ from PIL import Image
 from pymediainfo import MediaInfo
 from pyrogram.types import Message
 
+from PyroDaz.helpers.basic import edit_or_reply
+
 
 def get_text(message: Message) -> [None, str]:
     """Extract Text From Commands"""
