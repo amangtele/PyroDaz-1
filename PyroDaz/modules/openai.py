@@ -2,7 +2,6 @@ from pyrogram import *
 from pyrogram.types import *
 from pyrogram import Client as mang 
 
-from PyroDaz.helpers.cmd import *
 from pyrogram.errors import MessageNotModified
 from PyroDaz.helpers.what import *
 
