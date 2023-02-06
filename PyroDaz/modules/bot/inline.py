@@ -67,7 +67,7 @@ async def alive_function(message: Message, answers):
                 msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
              ),
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("──「 ʜᴇʟᴘ 」──", callback_data="helper")]]
+                [[InlineKeyboardButton("ʜᴇʟᴘ", callback_data="helper")]]
             ),
         )
     return answers
@@ -87,9 +87,11 @@ async def ping_function(message: Message, answers):
             title="ping",
             description="Check Bot's Stats",
             thumb_url="https://te.legra.ph/file/2a9123e82f02807224fe7.jpg",
+            input_message_content=InputTextMessageContent(
                 msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
+            ),
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("Support", url="t.me/about_db")]]
+                [[InlineKeyboardButton("Support", url="t.me/obrolansuar")]]
             ),
         )
     return answers
@@ -107,7 +109,9 @@ async def karman_function(message: Message, answers):
             title="kar",
             description="Check Bot's Stats",
             thumb_url="https://te.legra.ph/file/2a9123e82f02807224fe7.jpg",
+            input_message_content=InputTextMessageContent(
                 msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
+            ),
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("Support", url="t.me/about_db")]]
             ),
@@ -121,7 +125,9 @@ async def help_function(answers):
             title="Help Article!",
             description="Check Command List & Help",
             thumb_url="https://te.legra.ph/file/2a9123e82f02807224fe7.jpg",
+            input_message_content=InputTextMessageContent(
                 Data.text_help_menu.format(len(CMD_HELP))
+            ),
             reply_markup=InlineKeyboardMarkup(bttn),
         )
     return answers
