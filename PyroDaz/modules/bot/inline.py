@@ -70,7 +70,6 @@ async def alive_function(message: Message, answers):
                 [[InlineKeyboardButton("──「 ʜᴇʟᴘ 」──", callback_data="helper")]]
             ),
         )
-    )
     return answers
 
 async def ping_function(message: Message, answers):
