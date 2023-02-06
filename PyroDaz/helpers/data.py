@@ -1,5 +1,5 @@
 from pyrogram.types import InlineKeyboardButton
-from config import CMD_HANDLER as cmd
+from PyroDaz.helpers.cmd import *
 
 class Data:
 
