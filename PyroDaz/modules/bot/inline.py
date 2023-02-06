@@ -70,7 +70,6 @@ async def alive_function(message: Message, answers):
                 [[InlineKeyboardButton("ʜᴇʟᴘ", callback_data="helper")]]
             ),
         )
-    )
     return answers
 
 
@@ -96,7 +95,6 @@ async def ping_function(message: Message, answers):
                 [[InlineKeyboardButton("Support", url="t.me/about_db")]]
             ),
         )
-    )
     return answers
 
 
@@ -119,7 +117,6 @@ async def karman_function(message: Message, answers):
                 [[InlineKeyboardButton("Support", url="t.me/about_db")]]
             ),
         )
-    )
     return answers
 
 
@@ -134,7 +131,6 @@ async def help_function(answers):
             ),
             reply_markup=InlineKeyboardMarkup(bttn),
         )
-    )
     return answers
 
 
