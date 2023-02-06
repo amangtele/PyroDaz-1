@@ -21,7 +21,7 @@ from PyroDaz.utils import *
 
 from .help import add_command_help
 
-PM_AUTO_BAN = sq.gvarstatus("PM_AUTO_BAN") or "off"
+PM_AUTO_BAN = sq.gvarstatus("PM_AUTO_BAN") or "False"
 
 
 DEF_UNAPPROVED_MSG = (
@@ -31,6 +31,56 @@ DEF_UNAPPROVED_MSG = (
     "` Wait untill my owner wake up and reply your pm.`"
 )
 
+@Client.on_message(
+    ~filters.me & filters.private & ~filters.bot & filters.incoming, group=69
+)
+async def incomingpm(client: Client, message: Message):
+    if sq.gvarstatus("PM_AUTO_BAN") and sq.gvarstatus("PM_AUTO_BAN") == "False":
+        message.continue_propagation()
+    else:
+        if message.chat.id != 777000:
+            PM_LIMIT = sq.gvarstatus("PM_LIMIT") or 5
+            getmsg = sq.gvarstatus("approved_msg")
+            if getmsg is not None:
+                UNAPPROVED_MSG = getmsg
+            else:
+                UNAPPROVED_MSG = DEF_UNAPPROVED_MSG
+            apprv = is_approved(message.chat.id)
+            if not apprv and message.text != UNAPPROVED_MSG:
+                if message.chat.id in TEMP_SETTINGS["PM_LAST_MSG"]:
+                    prevmsg = TEMP_SETTINGS["PM_LAST_MSG"][message.chat.id]
+                    if message.text != prevmsg:
+                        async for message in client.search_messages(
+                            message.chat.id,
+                            from_user="me",
+                            limit=10,
+                            query=UNAPPROVED_MSG,
+                        ):
+                            await message.delete()
+                        if TEMP_SETTINGS["PM_COUNT"][message.chat.id] < (
+                            int(PM_LIMIT) - 1
+                        ):
+                            ret = await message.reply_text(UNAPPROVED_MSG)
+                            TEMP_SETTINGS["PM_LAST_MSG"][message.chat.id] = ret.text
+                else:
+                    ret = await message.reply_text(UNAPPROVED_MSG)
+                    if ret.text:
+                        TEMP_SETTINGS["PM_LAST_MSG"][message.chat.id] = ret.text
+                if message.chat.id not in TEMP_SETTINGS["PM_COUNT"]:
+                    TEMP_SETTINGS["PM_COUNT"][message.chat.id] = 1
+                else:
+                    TEMP_SETTINGS["PM_COUNT"][message.chat.id] = (
+                        TEMP_SETTINGS["PM_COUNT"][message.chat.id] + 1
+                    )
+                if TEMP_SETTINGS["PM_COUNT"][message.chat.id] > (int(PM_LIMIT) - 1):
+                    await message.reply("`Blocked! Because you spamming.`")
+                    try:
+                        del TEMP_SETTINGS["PM_COUNT"][message.chat.id]
+                        del TEMP_SETTINGS["PM_LAST_MSG"][message.chat.id]
+                    except BaseException:
+                        pass
+                    await client.block_user(message.chat.id)
+    message.continue_propagation()
 
 @Client.on_message(filters.command(["ok", "a", "approve"], cmd) & filters.me)
 async def approvepm(client: Client, message: Message):
