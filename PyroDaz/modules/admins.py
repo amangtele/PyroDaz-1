@@ -296,7 +296,7 @@ async def demote(client: Client, message: Message):
 
 
 add_command_help(
-    "admin",
+    "Admin",
     [
         [f"{cmd}ban <reply/username/userid> <alasan>", "Membanned member dari grup."],
         [
