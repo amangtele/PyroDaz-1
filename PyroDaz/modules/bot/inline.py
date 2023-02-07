@@ -53,7 +53,7 @@ async def alive_function(message: Message, answers):
     uptime = await get_readable_time((time.time() - StartTime))
     msg = f"""
 <b> 𝙋𝙮𝙧𝙤𝙇𝙞𝙣𝙚_𝙐𝙗𝙤𝙩 </b>
-<b>       Status : 𝘗𝘳𝘦𝘮𝘪𝘶𝘮 [Devs]</b>
+<b>       Status : 𝘗𝘳𝘦𝘮𝘪𝘶𝘮</b>
 <b>         User :</b> {message.from_user.mention}
 <b>         Plugins :</b> <code>{len(CMD_HELP)} Modules</code>
 <b>         Python Version :</b> <code>{pyver.split()[0]}</code>
