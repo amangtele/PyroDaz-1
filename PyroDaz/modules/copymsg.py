@@ -22,7 +22,7 @@ from config import CMD_HANDLER as prefix
 
 @Client.on_message(filters.command("copy", prefix) & filters.me)
 async def nyolongnih(client, message):
-    await message.edit("Let's grab the content first...")
+    await message.edit("Procesing...")
     link = get_arg(message)
     msg_id = int(link.split("/")[-1])
     if "t.me/c/" in link:
@@ -74,13 +74,13 @@ async def nyolongnih(client, message):
         await message.edit("Looks like something's wrong")
 
 
-@Client.on_message(filters.command("copybot", prefix) & filters.me)
+@Client.on_message(filters.command("getmsg", prefix) & filters.me)
 async def pencuri(client, message):
     dia = message.reply_to_message
     if not dia:
         await message.edit("Please reply to the media on the bot")
     anjing = dia.caption or None
-    await message.edit("Ready to steal content...")
+    await message.edit("Procesing...")
     if dia.text:
         await dia.copy(message.chat.id)
         await message.delete()
@@ -117,7 +117,7 @@ async def pencuri(client, message):
         await message.edit("Looks like something's wrong")
 
 
-@Client.on_message(filters.command("getmsg", prefix) & filters.me)
+@Client.on_message(filters.command("getmedia", prefix) & filters.me)
 async def ambil(client: Client, message: Message):
     dia = message.reply_to_message
     if not dia:
@@ -154,11 +154,7 @@ add_command_help(
         [
             "copy <link protected channel.>",
             "Copy anything from the protected channel."],
-        [   "copybot <reply message>",
+        [   "getmsg <reply message>",
             "Copy anything from the protected channel."],
-        [   "getmsg <get the photo on the timer.>",
-            "get the photo on the timer.",
-          
-        ],
     ],
 )
