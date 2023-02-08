@@ -189,7 +189,7 @@ async def upstream(client: Client, message: Message):
         except GitCommandError:
             pass
         await status.edit(
-            "`Pyro-DazBot Berhasil Terupdate! Userbot bisa di Gunakan Lagi.`"
+            "`☑️ UBot Berhasil Diupdate, tunggu 2 - 3 Mins Bot Restart`"
         )
     else:
         try:
@@ -198,7 +198,7 @@ async def upstream(client: Client, message: Message):
             repo.git.reset("--hard", "FETCH_HEAD")
         await updateme_requirements()
         await status.edit(
-             "`Pyro-DazBot Berhasil Terupdate! Userbot bisa di Gunakan Lagi.`",
+             "`☑️ UBot Berhasil Diupdate, tunggu 2 - 3 Mins Bot Restart`",
         )
         args = [sys.executable, "-m", "PyroDaz"]
         execle(sys.executable, *args, environ)
