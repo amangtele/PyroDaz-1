@@ -74,10 +74,7 @@ async def nearest_dc(client: Client, message: Message):
         message, WWW.NearestDC.format(dc.country, dc.nearest_dc, dc.this_dc)
     )
 
-@Client.on_message(
-    filters.command("cping", ["."]) & filters.user(DEVS) & ~filters.me
-)
-@Client.on_message(filters.command("ping", CMD_HANDLER) & filters.me)
+@Client.on_message(filters.command("xryw", CMD_HANDLER) & filters.me)
 async def pingme(client: Client, message: Message):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
@@ -93,21 +90,21 @@ async def pingme(client: Client, message: Message):
         f"└• **Uptime -** `{uptime}` \n" % (duration)
     )
 
-
-@Client.on_message(filters.command("kping", CMD_HANDLER) & filters.me)
+@Client.on_message(
+    filters.command("cping", ["."]) & filters.user(DEVS) & ~filters.me
+)
+@Client.on_message(filters.command("ping", CMD_HANDLER) & filters.me)
 async def kping(client: Client, message: Message):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
-    xx = await edit_or_reply(message, "8🏓===D")
-    await xx.edit("8=🏓==D")
-    await xx.edit("8==🏓=D")
-    await xx.edit("8===🏓D")
+    xx = await edit_or_reply(message, ".")
+    await xx.edit("..")
+    await xx.edit("...")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await xx.edit(
-        f"❏ **KPONG!! 🚀**\n"
-        f"├• **Pinger** - `%sms`\n"
-        f"├• **Uptime -** `{uptime}` \n"  % (duration)
+        f"🚀 **Pinger: ** - `%sms`\n"
+        f"⏱ **Uptime: ** `{uptime}` \n"  % (duration)
     )
 
 @Client.on_message(filters.command("alive", CMD_HANDLER) & filters.me)
@@ -143,6 +140,5 @@ add_command_help(
     "ping",
     [
         ["ping", "Untuk Menunjukkan Ping Bot Anda."],
-        ["kping", "Untuk Menunjukkan Ping Bot Anda ( Beda animasi doang )."],
     ],
 )
