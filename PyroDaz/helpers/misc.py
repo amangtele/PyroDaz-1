@@ -3,11 +3,12 @@ import shlex
 import socket
 from typing import Tuple
 
+import dotenv
 import heroku3
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError
 
-from config import BRANCH, GIT_TOKEN, HEROKU_API_KEY, HEROKU_APP_NAME
+from config import BRANCH, GIT_TOKEN, HEROKU_API_KEY, HEROKU_APP_NAME, REPO_URL
 from PyroDaz import LOGGER
 
 HAPP = None
@@ -48,8 +49,7 @@ def install_req(cmd: str) -> Tuple[str, str, int, int]:
 
     return asyncio.get_event_loop().run_until_complete(install_requirements())
 
-REPO_URL = "https://github.com/FadRepo/PyroDaz" 
-    
+
 def git():
     REPO_LINK = REPO_URL
     if GIT_TOKEN:
@@ -60,9 +60,9 @@ def git():
         UPSTREAM_REPO = REPO_URL
     try:
         repo = Repo()
-        LOGGER("FadRepo").info(f"Git Client Found")
+        LOGGER("PyroDaz").info(f"Git Client Found")
     except GitCommandError:
-        LOGGER("FadRepo").info(f"Invalid Git Command")
+        LOGGER("PyroDaz").info(f"Invalid Git Command")
     except InvalidGitRepositoryError:
         repo = Repo.init()
         if "origin" in repo.remotes:
@@ -87,7 +87,8 @@ def git():
         except GitCommandError:
             repo.git.reset("--hard", "FETCH_HEAD")
         install_req("pip3 install --no-cache-dir -U -r requirements.txt")
-        LOGGER("FadRepo").info("Fetched Latest Updates")
+        LOGGER("PyroDaz").info("Fetched Latest Updates")
+
 
 def is_heroku():
     return "heroku" in socket.getfqdn()
@@ -100,10 +101,10 @@ def heroku():
             try:
                 Heroku = heroku3.from_key(HEROKU_API_KEY)
                 HAPP = Heroku.app(HEROKU_APP_NAME)
-                LOGGER("FadRepo").info(f"Heroku App Configured")
+                LOGGER("PyroDaz").info(f"Heroku App Configured")
             except BaseException as e:
-                LOGGER("FadRepo").error(e)
-                LOGGER("FadRepo").info(
+                LOGGER("Heroku").error(e)
+                LOGGER("Heroku").info(
                     f"Pastikan HEROKU_API_KEY dan HEROKU_APP_NAME anda dikonfigurasi dengan benar di config vars heroku."
                 )
 
@@ -115,10 +116,10 @@ async def in_heroku():
 async def create_botlog(client):
     if HAPP is None:
         return
-    LOGGER("FadRepo").info(
+    LOGGER("PyroDaz").info(
         "TUNGGU SEBENTAR. SEDANG MEMBUAT GROUP LOG USERBOT UNTUK ANDA"
     )
-    desc = "Group Log untuk PyroDaz-Ubot.\n\nHARAP JANGAN KELUAR DARI GROUP INI.\n\n✨ Powered By ~ @About_db ✨"
+    desc = "Group Log untuk UBot.\n\nHARAP JANGAN KELUAR DARI GROUP INI.\n\nPowered By ~ @About_db"
     try:
         gruplog = await client.create_supergroup("Log UserBot", desc)
         if await in_heroku():
@@ -128,6 +129,6 @@ async def create_botlog(client):
             path = dotenv.find_dotenv("config.env")
             dotenv.set_key(path, "BOTLOG_CHATID", gruplog.id)
     except Exception:
-        LOGGER("FadRepo").warning(
-            "var BOTLOG_CHATID kamu belum di isi. Buatlah grup telegram dan masukan bot @xdbmusicbot lalu ketik /id Masukan id grup nya di var BOTLOG_CHATID"
+        LOGGER("PyroDaz").warning(
+            "var BOTLOG_CHATID kamu belum di isi. Buatlah grup telegram dan masukan bot @MissRose_bot lalu ketik /id Masukan id grup nya di var BOTLOG_CHATID"
         )
