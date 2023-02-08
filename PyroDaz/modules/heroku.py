@@ -1,16 +1,3 @@
-#
-# Copyright (C) 2021-2022 by TeamYukki@Github, < https://github.com/TeamYukki >.
-#
-# This file is part of < https://github.com/TeamYukki/YukkiMusicBot > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TeamYukki/YukkiMusicBot/blob/master/LICENSE >
-#
-# All rights reserved.
-#
-# Ported by @mrismanaziz
-# FROM File-Sharing-Man < https://github.com/mrismanaziz/File-Sharing-Man/ >
-# t.me/Lunatic0de & t.me/SharingUserbot
-#
 
 import asyncio
 import math
@@ -174,31 +161,12 @@ async def usage_heroku(client: Client, message: Message):
     await asyncio.sleep(1.5)
     text = f"""
 ✥ **Informasi Dyno Heroku :**
-╔════════════════════╗
- ➠ **Penggunaan Dyno** `{HEROKU_APP_NAME}` :
+ ➲ **Penggunaan Dyno** `{HEROKU_APP_NAME}` :
      •  `{AppHours}`**Jam**  `{AppMinutes}`**Menit |**  [`{AppPercentage}`**%**]
- ➠ **Sisa kuota dyno bulan ini** :
+ ➲ **Sisa kuota dyno bulan ini** :
      •  `{hours}`**Jam**  `{minutes}`**Menit |**  [`{percentage}`**%**]
-╚════════════════════╝
 ✥ **Sisa Dyno Heroku** `{day}` **Hari Lagi**"""
     return await dyno.edit(text)
-
-
-@Client.on_message(filters.command("usange", CMD_HANDLER) & filters.me)
-async def usange_heroku(client: Client, message: Message):
-    xx = await edit_or_reply(message, "`Processing...`")
-    await xx.edit(
-        "✥ **Informasi Dyno Heroku :**"
-        "\n╔════════════════════╗\n"
-        f" ➠ **Penggunaan Dyno** `{HEROKU_APP_NAME}` :\n"
-        f"     •  `0`**Jam**  `0`**Menit**  "
-        f"**|**  [`0`**%**]"
-        "\n◖════════════════════◗\n"
-        " ➠ **Sisa kuota dyno bulan ini** :\n"
-        f"     •  `1000`**Jam**  `0`**Menit**  "
-        f"**|**  [`100`**%**]"
-        "\n╚════════════════════╝\n"
-    )
 
 
 add_command_help(
@@ -210,10 +178,6 @@ add_command_help(
         [
             f"usage atau {CMD_HANDLER}dyno",
             "Untuk mengecheck kouta dyno heroku.",
-        ],
-        [
-            "usange",
-            "Fake Usage Kouta Dyno Heroku jadi 1000jam Untuk menipu temanmu wkwk.",
         ],
     ],
 )
