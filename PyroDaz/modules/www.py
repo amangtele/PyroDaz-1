@@ -103,7 +103,7 @@ async def kping(client: Client, message: Message):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await xx.edit(
-        f"🚀 **Pinger: ** - `%sms`\n"
+        f"🚀 **Pinger: ** `%sms`\n"
         f"⏱ **Uptime: ** `{uptime}` \n"  % (duration)
     )
 
