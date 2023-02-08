@@ -40,7 +40,10 @@ if GIT_TOKEN:
     GIT_USERNAME = REPO_URL.split("com/")[1].split("/")[0]
     TEMP_REPO = REPO_URL.split("https://")[1]
     UPSTREAM_REPO = f"https://{GIT_USERNAME}:{GIT_TOKEN}@{TEMP_REPO}"
-UPSTREAM_REPO_URL = UPSTREAM_REPO
+    UPSTREAM_REPO_URL = UPSTREAM_REPO
+else:
+    UPSTREAM_REPO_URL = REPO_URL
+
 requirements_path = path.join(
     path.dirname(path.dirname(path.dirname(__file__))), "requirements.txt"
 )
@@ -172,7 +175,7 @@ async def upstream(client: Client, message: Message):
             repo.__del__()
             return
         await status.edit(
-            "`[HEROKU]: Update Deploy Pyro-DazBot Sedang Dalam Proses...`"
+            "`[HEROKU]: Update Deploy Ubot Sedang Dalam Proses...`"
         )
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
@@ -189,7 +192,7 @@ async def upstream(client: Client, message: Message):
         except GitCommandError:
             pass
         await status.edit(
-            "`☑️ UBot Berhasil Diupdate, tunggu 2 - 3 Mins Bot Restart`"
+            "`☑️ UBot Berhasil terupdate! Ubot bisa di Gunakan Lagi.`"
         )
     else:
         try:
@@ -198,7 +201,7 @@ async def upstream(client: Client, message: Message):
             repo.git.reset("--hard", "FETCH_HEAD")
         await updateme_requirements()
         await status.edit(
-             "`☑️ UBot Berhasil Diupdate, tunggu 2 - 3 Mins Bot Restart`",
+            "`☑️ UBot Berhasil terupdate! Ubot bisa di Gunakan Lagi.`",
         )
         args = [sys.executable, "-m", "PyroDaz"]
         execle(sys.executable, *args, environ)
@@ -267,7 +270,7 @@ async def updaterman(client: Client, message: Message):
 add_command_help(
     "update",
     [
-        ["update", "Untuk melihat list pembaruan terbaru dari Pyro-DazBot."],
+        ["update", "Untuk melihat list pembaruan terbaru dari UBot"],
         ["update deploy", "Untuk mengupdate userbot."],
     ],
 )
