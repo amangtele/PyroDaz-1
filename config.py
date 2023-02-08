@@ -10,9 +10,10 @@
 from distutils.util import strtobool
 from os import getenv
 
+import requests
 from dotenv import load_dotenv
 
-load_dotenv("config.env")
+load_dotenv(".env")
 
 API_HASH = getenv("API_HASH")
 API_ID = int(getenv("API_ID", ""))
