@@ -274,7 +274,7 @@ add_command_help(
         ["update deploy", "Untuk mengupdate userbot."],
         ["dc", "Untuk melihat DC Telegram anda."],
         [
-            f"speedtest `atau` {CMD_HANDLER}speed",
+            f"speedtest `atau` {cmd}speed",
             "Untuk megetes Kecepatan Server anda.",
         ],
     ],
