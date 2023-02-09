@@ -277,21 +277,5 @@ add_command_help(
             f"speedtest `atau` {cmd}speed",
             "Untuk megetes Kecepatan Server anda.",
         ],
-        [
-            "alive",
-            "Untuk memeriksa userbot anda berfungsi atau tidak",
-        ],
-        [
-            "setalivelogo <link telegraph atau reply ke foto/video/gif>",
-            "Untuk mengcustom alive logo userbot anda",
-        ],
-        [
-            "setalivetext <text>",
-            "Untuk mengcustom alive text userbot anda",
-        ],
-        [
-            "setemoji <emoji>",
-            "Untuk mengcustom emoji alive userbot anda",
-        ],
     ],
 )
