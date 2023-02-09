@@ -277,13 +277,7 @@ add_command_help(
             f"speedtest `atau` {cmd}speed",
             "Untuk megetes Kecepatan Server anda.",
         ],
-    ],
-)
-
-add_command_help(
-    "⁣⁫­⁫⁣⁫⁣⁫⁣⁫⁣⁫⁣⁫⁣⁫⁣⁫⁣⁫Alive",
-    [
-        [
+                [
             f"{cmd}alive",
             "Untuk memeriksa userbot anda berfungsi atau tidak",
         ],
