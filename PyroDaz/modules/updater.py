@@ -279,3 +279,25 @@ add_command_help(
         ],
     ],
 )
+
+add_command_help(
+    "Alive",
+    [
+        [
+            f"{cmd}alive",
+            "Untuk memeriksa userbot anda berfungsi atau tidak",
+        ],
+        [
+            f"{cmd}setalivelogo <link telegraph atau reply ke foto/video/gif>",
+            "Untuk mengcustom alive logo userbot anda",
+        ],
+        [
+            f"{cmd}setalivetext <text>",
+            "Untuk mengcustom alive text userbot anda",
+        ],
+        [
+            f"{cmd}setemoji <emoji>",
+            "Untuk mengcustom emoji alive userbot anda",
+        ],
+    ],
+)
