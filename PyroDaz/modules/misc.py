@@ -197,6 +197,10 @@ add_command_help(
             f"sosmed <link>",
             "Untuk Mendownload Media Dari Facebook / Tiktok / Instagram / Twitter / YouTube.",
         ],
+        [
+            "google",
+            "Featch Details on Google.",
+        ],
     ],
 )
 

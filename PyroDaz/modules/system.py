@@ -71,12 +71,13 @@ async def logs_ubot(client: Client, message: Message):
     await Man.delete()
     remove("Logs-Heroku.txt")
 
-
 add_command_help(
-    "system",
+    "System",
     [
         ["restart", "Untuk merestart userbot."],
         ["shutdown", "Untuk mematikan userbot."],
         ["logs", "Untuk melihat logs userbot."],
+        ["ping", "Untuk Menunjukkan Ping Bot Anda."],
+        ["stats", "To Check Your Account Status, how Joined Chats."],
     ],
 )

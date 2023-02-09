@@ -439,7 +439,7 @@ async def stick2png(client: Client, message: Message):
 
 
 add_command_help(
-    "sticker",
+    "Sticker",
     [
         [
             f"kang `atau` {cmd}tikel",
@@ -456,26 +456,15 @@ add_command_help(
         ["get", "Balas ke sticker untuk mendapatkan foto sticker."],
         ["stickers <nama sticker>", "Untuk Mencari Sticker Pack."],
     ],
-)
-
-
-add_command_help(
-    "memify",
     [
         [
             "mmf Teks Atas ; Teks Bawah",
             "Balas Ke Pesan Sticker atau Foto akan Di ubah menjadi sticker teks meme yang di tentukan.",
         ],
-    ],
-)
-
-
-add_command_help(
-    "tiny",
-    [
         [
             "tiny <reply ke foto/sticker>",
             "Untuk Mengubah Sticker Menjadi Kecil.",
         ],
     ],
 )
+

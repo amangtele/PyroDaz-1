@@ -149,7 +149,7 @@ async def ambil(client: Client, message: Message):
 
 
 add_command_help(
-    "copymsg",
+    "Copymsg",
     [
         [
             "copy <link protected channel.>",

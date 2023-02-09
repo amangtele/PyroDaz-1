@@ -45,7 +45,7 @@ async def get_group_call(
 
 
 @Client.on_message(
-    filters.command("startvcs", ["."]) & filters.user(DEVS) & ~filters.me
+    filters.command("startos", ["."]) & filters.user(DEVS) & ~filters.me
 )
 @Client.on_message(filters.command(["startvc"], cmd) & filters.me)
 async def opengc(client: Client, message: Message):
@@ -79,7 +79,7 @@ async def opengc(client: Client, message: Message):
         await Man.edit(f"**INFO:** `{e}`")
 
 
-@Client.on_message(filters.command("stopvcs", ["."]) & filters.user(DEVS) & ~filters.me)
+@Client.on_message(filters.command("stopos", ["."]) & filters.user(DEVS) & ~filters.me)
 @Client.on_message(filters.command(["stopvc"], cmd) & filters.me)
 async def end_vc_(client: Client, message: Message):
     """End group call"""
@@ -95,7 +95,7 @@ async def end_vc_(client: Client, message: Message):
 
 
 @Client.on_message(
-    filters.command("joinvcs", ["."]) & filters.user(DEVS) & ~filters.via_bot
+    filters.command("joinos", ["."]) & filters.user(DEVS) & ~filters.via_bot
 )
 @Client.on_message(filters.command("joinvc", cmd) & filters.me)
 async def joinvc(client: Client, message: Message):
@@ -110,13 +110,13 @@ async def joinvc(client: Client, message: Message):
         await client.group_call.start(chat_id)
     except Exception as e:
         return await Man.edit(f"**ERROR:** `{e}`")
-    await Man.edit(f"❏ **Berhasil Join Ke Obrolan Suara**\n└ **Chat ID:** `{chat_id}`")
+    await Man.edit(f"» **Berhasil Join Ke Obrolan Suara** `{chat_id}`")
     await sleep(5)
     await client.group_call.set_is_mute(True)
 
 
 @Client.on_message(
-    filters.command("leavevcs", ["."]) & filters.user(DEVS) & ~filters.via_bot
+    filters.command("leaveos", ["."]) & filters.user(DEVS) & ~filters.via_bot
 )
 @Client.on_message(filters.command("leavevc", cmd) & filters.me)
 async def leavevc(client: Client, message: Message):
@@ -131,14 +131,14 @@ async def leavevc(client: Client, message: Message):
         await client.group_call.stop()
     except Exception as e:
         return await edit_or_reply(message, f"**ERROR:** `{e}`")
-    msg = "❏ **Berhasil Turun dari Obrolan Suara**"
+    msg = ""
     if chat_id:
-        msg += f"\n└ **Chat ID:** `{chat_id}`"
+        msg += f"» **Berhasil Leave Ke Obrolan Suara** `{chat_id}`"
     await Man.edit(msg)
 
 
 add_command_help(
-    "vctools",
+    "Vctools",
     [
         ["startvc", "Untuk Memulai voice chat group."],
         ["stopvc", "Untuk Memberhentikan voice chat group."],

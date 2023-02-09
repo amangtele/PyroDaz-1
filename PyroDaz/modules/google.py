@@ -71,13 +71,3 @@ async def gs(client: Client, message: Message):
         )
     await Man.edit(returnmsg)
 
-
-add_command_help(
-    "google",
-    [
-        [
-            "google",
-            "Featch Details on Google.",
-        ],
-    ],
-)

@@ -61,10 +61,3 @@ async def stats(client: Client, message: Message):
         )
     )
 
-
-add_command_help(
-    "stats",
-    [
-        ["stats", "To Check Your Account Status, how Joined Chats."],
-    ],
-)

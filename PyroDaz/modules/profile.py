@@ -134,7 +134,7 @@ async def view_pfp(client: Client, message: Message):
 
 
 add_command_help(
-    "profile",
+    "Profile",
     [
         ["block", "Untuk memblokir pengguna telegram"],
         ["unblock", "Untuk membuka pengguna yang anda blokir"],

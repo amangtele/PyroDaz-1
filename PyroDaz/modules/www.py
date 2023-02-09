@@ -124,21 +124,3 @@ async def module_karman(client: Client, message: Message):
         except BaseException:
             pass
 
-add_command_help(
-    "speedtest",
-    [
-        ["dc", "Untuk melihat DC Telegram anda."],
-        [
-            f"speedtest `atau` {CMD_HANDLER}speed",
-            "Untuk megetes Kecepatan Server anda.",
-        ],
-    ],
-)
-
-
-add_command_help(
-    "ping",
-    [
-        ["ping", "Untuk Menunjukkan Ping Bot Anda."],
-    ],
-)

@@ -1301,7 +1301,7 @@ async def santet(client: Client, message: Message):
 
 
 add_command_help(
-    "Animation",
+    "Animasi",
     [
         ["fuck", "Untuk menampilkan animasi jari tengah."],
         ["dino", "Untuk menampilkan animasi dikejar dino."],

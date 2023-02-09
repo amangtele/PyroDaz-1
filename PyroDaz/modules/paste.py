@@ -62,8 +62,12 @@ async def paste_func(client: Client, message: Message):
 
 
 add_command_help(
-    "paste",
+    "Paste",
     [
         ["paste <reply>", "Untuk Menyimpan text ke ke layanan pastebin"],
+        [
+            "parse",
+            "Parse a web_page(link) preview",
+        ],
     ],
 )
