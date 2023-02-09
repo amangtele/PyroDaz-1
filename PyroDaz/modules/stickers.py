@@ -455,8 +455,6 @@ add_command_help(
         ],
         ["get", "Balas ke sticker untuk mendapatkan foto sticker."],
         ["stickers <nama sticker>", "Untuk Mencari Sticker Pack."],
-    ],
-    [
         [
             "mmf Teks Atas ; Teks Bawah",
             "Balas Ke Pesan Sticker atau Foto akan Di ubah menjadi sticker teks meme yang di tentukan.",
