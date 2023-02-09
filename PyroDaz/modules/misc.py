@@ -177,7 +177,7 @@ async def sosmed(client: Client, message: Message):
 
 
 add_command_help(
-    "misc",
+    "Misc",
     [
         ["limit", "Check Limit telegram from @SpamBot."],
         [
@@ -189,27 +189,14 @@ add_command_help(
             "open",
             "Untuk melihat isi File menjadi text yang dikirim menjadi pesan telegram.",
         ],
-    ],
-)
-
-
-add_command_help(
-    "webshot",
-    [
-        [
+                [
             f"webshot <link> `atau` {CMD_HANDLER}ss <link>",
             "Untuk Mengscreenshot halaman web yang diberikan.",
         ],
-    ],
-)
-
-
-add_command_help(
-    "sosmed",
-    [
-        [
+                [
             f"sosmed <link>",
             "Untuk Mendownload Media Dari Facebook / Tiktok / Instagram / Twitter / YouTube.",
         ],
     ],
 )
+
