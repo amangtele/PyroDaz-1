@@ -268,9 +268,14 @@ async def updaterman(client: Client, message: Message):
 
 
 add_command_help(
-    "update",
+    "Update",
     [
         ["update", "Untuk melihat list pembaruan terbaru dari UBot"],
         ["update deploy", "Untuk mengupdate userbot."],
+        ["dc", "Untuk melihat DC Telegram anda."],
+        [
+            f"speedtest `atau` {CMD_HANDLER}speed",
+            "Untuk megetes Kecepatan Server anda.",
+        ],
     ],
 )

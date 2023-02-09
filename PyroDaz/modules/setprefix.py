@@ -36,7 +36,7 @@ async def setprefix_(c: Client, m: Message):
 
 
 add_command_help(
-    "setprefix",
+    "Setprefix",
     [
         [
             "setprefix <type setprefix>",

@@ -62,7 +62,7 @@ async def revert(client: Client, message: Message):
 
 
 add_command_help(
-    "clone",
+    "Clone",
     [
         ["clone", "To Clone someone Profile."],
         ["revert", "To Get Your Account Back."],

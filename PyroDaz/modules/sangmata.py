@@ -53,13 +53,3 @@ async def sg(client: Client, message: Message):
             await message.reply(stalk.text)
             await stalk.delete()
 
-
-add_command_help(
-    "sangmata",
-    [
-        [
-            f"{cmd}sg <reply/userid/username>",
-            "Untuk Mendapatkan Riwayat Nama Pengguna selama di telegram.",
-        ],
-    ],
-)

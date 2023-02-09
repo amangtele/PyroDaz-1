@@ -250,7 +250,7 @@ async def reset_pmpermit(client: Client, message: Message):
         sq.delgvar("unapproved_msg")
         await ok.edit("**Done set PM messages set to DEFAULT**")
 add_command_help(
-    "pmpermit",
+    "Pmpermit",
     [
         [
             f"ok atau {cmd}setuju",

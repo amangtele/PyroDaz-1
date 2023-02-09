@@ -170,7 +170,7 @@ async def usage_heroku(client: Client, message: Message):
 
 
 add_command_help(
-    "heroku",
+    "Heroku",
     [
         ["setvar", "Untuk mengatur variabel config userbot."],
         ["delvar", "Untuk menghapus variabel config userbot."],

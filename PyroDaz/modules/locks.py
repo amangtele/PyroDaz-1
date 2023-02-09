@@ -139,7 +139,7 @@ async def locktypes(client: Client, message: Message):
 
 
 add_command_help(
-    "locks",
+    "Locks",
     [
         ["lock <all atau jenis lock>", "Mengunci izin di grup."],
         [

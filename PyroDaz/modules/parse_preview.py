@@ -76,13 +76,3 @@ async def parse(client: Client, message: Message):
         )
     await m_.edit(text, disable_web_page_preview=True)
 
-
-add_command_help(
-    "parse",
-    [
-        [
-            "parse",
-            "Parse a web_page(link) preview",
-        ]
-    ],
-)

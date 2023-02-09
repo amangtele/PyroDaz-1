@@ -73,7 +73,7 @@ async def translate(client: Client, message: Message):
 
 
 add_command_help(
-    "translate",
+    "Translate",
     [
         [
             "tr <kode bahasa> <text/reply>",

@@ -64,7 +64,7 @@ async def cancel_spam(client: Client, message: Message):
 
 
 add_command_help(
-    "tagall",
+    "Tagall",
     [
         [
             "tagall [text/reply ke chat]",
@@ -73,6 +73,16 @@ add_command_help(
         [
             "cancel",
             f"Untuk Membatalkan Perintah {cmd}tagall",
+        ],
+        [f"{cmd}admins", "Get chats Admins list."],
+        [f"{cmd}kickdel", "To Kick deleted Accounts."],
+        [
+            f"{cmd}everyone `or` {cmd}tagall",
+            "to mention Everyone ",
+        ],
+        [
+            f"{cmd}botlist",
+            "To get Chats Bots list",
         ],
     ],
 )
