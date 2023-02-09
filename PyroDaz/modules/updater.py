@@ -281,7 +281,7 @@ add_command_help(
 )
 
 add_command_help(
-    "alive",
+    "Alive",
     [
         [
             f"{cmd}alive",
