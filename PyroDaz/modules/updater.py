@@ -275,7 +275,7 @@ add_command_help(
         ["dc", "Untuk melihat DC Telegram anda."],
         ["ping", "Untuk Menunjukkan Ping Bot Anda."],
         [
-            f"speedtest `atau` {CMD_HANDLER}speed",
+            f"speedtest `atau` {cmd}speed",
             "Untuk megetes Kecepatan Server anda.",
         ],
     ],
