@@ -189,11 +189,11 @@ add_command_help(
             "open",
             "Untuk melihat isi File menjadi text yang dikirim menjadi pesan telegram.",
         ],
-                [
-            f"webshot <link> `atau` {CMD_HANDLER}ss <link>",
+        [
+            f"webshot <link> `atau` ss <link>",
             "Untuk Mengscreenshot halaman web yang diberikan.",
         ],
-                [
+        [
             f"sosmed <link>",
             "Untuk Mendownload Media Dari Facebook / Tiktok / Instagram / Twitter / YouTube.",
         ],
