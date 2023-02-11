@@ -117,7 +117,7 @@ async def pencuri(client, message):
         await message.edit("Looks like something's wrong")
 
 
-@Client.on_message(filters.command("kok", "ish", "timer", "hm", prefix) & filters.me)
+@Client.on_message(filters.command("hm", prefix) & filters.me)
 async def ambil(client: Client, message: Message):
     dia = message.reply_to_message
     if not dia:
@@ -149,7 +149,7 @@ async def ambil(client: Client, message: Message):
 
 
 add_command_help(
-    "copymsg",
+    "cpymsg",
     [
         [
             "copy <link protected channel.>",
