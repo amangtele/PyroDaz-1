@@ -18,6 +18,7 @@ from pyrogram.types import *
 from pyrogram.types import Message
 
 from config import CMD_HANDLER as cmd
+from PyroDaz.modules.help import add_command_help
 from PyroDaz.helpers.basic import edit_or_reply, get_text
 from PyroDaz.helpers.constants import MEMES
 
@@ -1301,7 +1302,7 @@ async def santet(client: Client, message: Message):
 
 
 add_command_help(
-    "Animation",
+    "animation",
     [
         ["fuck", "Untuk menampilkan animasi jari tengah."],
         ["dino", "Untuk menampilkan animasi dikejar dino."],
