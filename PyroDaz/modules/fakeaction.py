@@ -73,7 +73,7 @@ async def fakeactions_handler(client: Client, message: Message):
 
 
 add_command_help(
-    "Fakeaction",
+    "fakeaction",
     [
         ["ftyping [detik]", "Menampilkan Pengetikan Palsu dalam obrolan."],
         ["fgame [detik]", "Menampilkan sedang bermain game Palsu dalam obrolan."],

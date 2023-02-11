@@ -175,7 +175,7 @@ async def delblacklist(client: Client, message: Message):
 
 
 add_command_help(
-    "Broadcast",
+    "broadcast",
     [
         [
             "gcast <text/reply>",

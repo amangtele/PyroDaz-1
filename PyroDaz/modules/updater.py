@@ -78,7 +78,7 @@ async def updateme_requirements():
 
 
 @Client.on_message(
-    filters.command("diupdate", ["."]) & filters.user(DEVS) & ~filters.me
+    filters.command("ckupdate", ["."]) & filters.user(DEVS) & ~filters.me
 )
 @Client.on_message(filters.command("update", cmd) & filters.me)
 async def upstream(client: Client, message: Message):
@@ -268,13 +268,14 @@ async def updaterman(client: Client, message: Message):
 
 
 add_command_help(
-    "Update",
+    "update",
     [
         ["update", "Untuk melihat list pembaruan terbaru dari UBot"],
         ["update deploy", "Untuk mengupdate userbot."],
         ["dc", "Untuk melihat DC Telegram anda."],
+        ["ping", "Untuk Menunjukkan Ping Bot Anda."],
         [
-            f"speedtest `atau` {cmd}speed",
+            f"speedtest `atau` {CMD_HANDLER}speed",
             "Untuk megetes Kecepatan Server anda.",
         ],
     ],

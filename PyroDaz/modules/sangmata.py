@@ -53,3 +53,4 @@ async def sg(client: Client, message: Message):
             await message.reply(stalk.text)
             await stalk.delete()
 
+

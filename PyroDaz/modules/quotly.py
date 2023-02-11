@@ -47,16 +47,3 @@ async def quotly(client: Client, message: Message):
                 return await message.edit("**Gagal Membuat Sticker Quotly**")
 
 
-add_command_help(
-    "Quotly",
-    [
-        [
-            f"q atau {cmd}quotly",
-            "Membuat pesan menjadi sticker dengan random background.",
-        ],
-        [
-            f"q <warna> atau {cmd}quotly <warna>",
-            "Membuat pesan menjadi sticker dengan custom warna background yang diberikan.",
-        ],
-    ],
-)

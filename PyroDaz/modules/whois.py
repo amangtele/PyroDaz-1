@@ -146,20 +146,15 @@ async def chatinfo_handler(client: Client, message: Message):
 
 
 add_command_help(
-    "Info",
+    "info",
     [
         [
             "info <username/userid/reply>",
             "dapatkan info pengguna telegram dengan deskripsi lengkap.",
         ],
-        ["id", "Send id of what you replied to."],
         [
             "chatinfo <username/chatid/reply>",
             "dapatkan info group dengan deskripsi lengkap.",
-        ],
-        [
-            f"{cmd}sg <reply/userid/username>",
-            "Untuk Mendapatkan Riwayat Nama Pengguna selama di telegram.",
         ],
     ],
 )
