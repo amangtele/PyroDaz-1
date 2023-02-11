@@ -182,6 +182,6 @@ add_command_help(
         [
             "setprefix <type setprefix>",
             "change your prefix memeq.",
-        ]
+        ],
     ],
 )
