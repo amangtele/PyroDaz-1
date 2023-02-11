@@ -9,6 +9,7 @@ import urllib3
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
+from config import CMD_HANDLER
 from config import *
 from PyroDaz.helpers.basic import edit_or_reply
 from PyroDaz.helpers.misc import HAPP, in_heroku
