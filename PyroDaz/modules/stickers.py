@@ -439,8 +439,20 @@ async def stick2png(client: Client, message: Message):
 
 
 add_command_help(
-    "Sticker",
+    "sticker",
     [
+        [
+            f"q atau {cmd}quotly",
+            "Membuat pesan menjadi sticker dengan random background.",
+        ],
+        [
+            f"q <warna> atau {cmd}quotly <warna>",
+            "Membuat pesan menjadi sticker dengan custom warna background yang diberikan.",
+        ],
+        [
+            "mmf Teks Atas ; Teks Bawah",
+            "Balas Ke Pesan Sticker atau Foto akan Di ubah menjadi sticker teks meme yang di tentukan.",
+        ],
         [
             f"kang `atau` {cmd}tikel",
             f"Balas {cmd}kang Ke Sticker Atau Gambar Untuk Menambahkan Ke Sticker Pack.",
@@ -453,16 +465,11 @@ add_command_help(
             f"packinfo `atau` {cmd}stickerinfo",
             "Untuk Mendapatkan Informasi Sticker Pack.",
         ],
-        ["get", "Balas ke sticker untuk mendapatkan foto sticker."],
-        ["stickers <nama sticker>", "Untuk Mencari Sticker Pack."],
-        [
-            "mmf Teks Atas ; Teks Bawah",
-            "Balas Ke Pesan Sticker atau Foto akan Di ubah menjadi sticker teks meme yang di tentukan.",
-        ],
         [
             "tiny <reply ke foto/sticker>",
             "Untuk Mengubah Sticker Menjadi Kecil.",
         ],
+        ["get", "Balas ke sticker untuk mendapatkan foto sticker."],
+        ["stickers <nama sticker>", "Untuk Mencari Sticker Pack."],
     ],
 )
-

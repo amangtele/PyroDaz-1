@@ -40,8 +40,8 @@ async def convert_image(client: Client, message: Message):
             await message.edit("`error message ...`")
 
 add_command_help(
-    "AnimeAi",
+    "animeai",
     [
-        [f"{cmds}toanime", "convert foto ke anime menggunakan ai bot"],
+        [f"`.toanime`", "convert foto ke anime menggunakan ai bot"],
     ],
 )

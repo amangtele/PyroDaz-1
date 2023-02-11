@@ -354,7 +354,7 @@ async def toxicvirtual(client: Client, message: Message):
 
 
 add_command_help(
-    "Toxic",
+    "toxic",
     [
         ["jamet", "Menghina Jamet telegram"],
         ["pp", "Menghina Jamet telegram yang ga pake foto profil."],

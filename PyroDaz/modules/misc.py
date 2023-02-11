@@ -197,6 +197,8 @@ add_command_help(
             f"sosmed <link>",
             "Untuk Mendownload Media Dari Facebook / Tiktok / Instagram / Twitter / YouTube.",
         ],
+        ["trump", "make a Quote by Trump."],
+        ["ctweet", "Twitte by Ur values."],
         [
             "google",
             "Featch Details on Google.",

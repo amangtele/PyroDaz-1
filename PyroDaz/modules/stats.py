@@ -60,4 +60,3 @@ async def stats(client: Client, message: Message):
             ms, u, g, sg, c, a_chat, b
         )
     )
-

@@ -27,14 +27,13 @@ absen = [
     "**Hadir dong dazi** 😁",
     "**Hadir dazi ganteng** 🥵",
     "**Hadir my brohh** 😎",
-    "**Hadir bang maap telat hehe** 🥺",
+    "**Hadir kak maap telat hehe** 🥺",
 ]
 
 
 @Client.on_message(filters.command("absen", ["."]) & filters.user(DEVS) & ~filters.me)
 async def absen(_, message: Message):
     await message.reply("**Hadir!**")
-
 
 @Client.on_message(filters.command("id", cmd) & filters.me)
 async def get_id(client: Client, message: Message):

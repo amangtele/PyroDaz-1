@@ -61,13 +61,3 @@ async def paste_func(client: Client, message: Message):
         await m.edit(f"[Here]({link}) your paste")
 
 
-add_command_help(
-    "Paste",
-    [
-        ["paste <reply>", "Untuk Menyimpan text ke ke layanan pastebin"],
-        [
-            "parse",
-            "Parse a web_page(link) preview",
-        ],
-    ],
-)

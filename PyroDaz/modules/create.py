@@ -44,7 +44,7 @@ async def create(client: Client, message: Message):
 
 
 add_command_help(
-    "Create",
+    "create",
     [
         ["create ch", "Untuk membuat channel telegram dengan userbot"],
         ["create gc", "Untuk membuat group telegram dengan userbot"],

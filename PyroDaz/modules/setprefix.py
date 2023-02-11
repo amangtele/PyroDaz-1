@@ -34,13 +34,3 @@ async def setprefix_(c: Client, m: Message):
         await m.edit(f"☑️ Prefix change to [{handle}]")
         restart()
 
-
-add_command_help(
-    "Setprefix",
-    [
-        [
-            "setprefix <type setprefix>",
-            "change your prefix memeq.",
-        ]
-    ],
-)

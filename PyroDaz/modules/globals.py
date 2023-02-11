@@ -286,7 +286,7 @@ async def globals_check(client: Client, message: Message):
 
 
 add_command_help(
-    "Globals",
+    "globals",
     [
         [
             "gban <reply/username/userid>",

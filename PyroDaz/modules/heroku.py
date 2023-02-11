@@ -170,7 +170,7 @@ async def usage_heroku(client: Client, message: Message):
 
 
 add_command_help(
-    "Heroku",
+    "heroku",
     [
         ["setvar", "Untuk mengatur variabel config userbot."],
         ["delvar", "Untuk menghapus variabel config userbot."],
@@ -179,5 +179,9 @@ add_command_help(
             f"usage atau {CMD_HANDLER}dyno",
             "Untuk mengecheck kouta dyno heroku.",
         ],
+        [
+            "setprefix <type setprefix>",
+            "change your prefix memeq.",
+        ]
     ],
 )

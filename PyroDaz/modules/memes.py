@@ -49,11 +49,3 @@ async def custom_tweet(client: Client, message: Message):
     await client.send_photo(message.chat.id, tweet, caption=starkxd)
     await message.delete()
 
-
-add_command_help(
-    "Memes",
-    [
-        ["trump", "make a Quote by Trump."],
-        ["ctweet", "Twitte by Ur values."],
-    ],
-)
