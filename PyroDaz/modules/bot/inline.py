@@ -20,6 +20,7 @@ from pyrogram.types import (
 from PyroDaz.helpers.data import Data
 from PyroDaz.helpers.inline import inline_wrapper, paginate_help
 from config import BOT_VER, BRANCH as branch
+from config import Exp as exp
 from PyroDaz import CMD_HELP, StartTime, app
 
 modules = CMD_HELP
@@ -55,6 +56,7 @@ async def alive_function(message: Message, answers):
 <b> 𝙋𝙮𝙧𝙤𝙇𝙞𝙣𝙚_𝙐𝙗𝙤𝙩 </b>
 <b>       Status : 𝘗𝘳𝘦𝘮𝘪𝘶𝘮</b>
 <b>         User :</b> {message.from_user.mention}
+<b>         Exp :</b> {exp}
 <b>         Plugins :</b> <code>{len(CMD_HELP)} Modules</code>
 <b>         Python Version :</b> <code>{pyver.split()[0]}</code>
 <b>         Pyrogram Version :</b> <code>{pyrover}</code>
@@ -83,8 +85,8 @@ async def ping_function(message: Message, answers):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     msg = (
-        f"🚀 𝗣𝗶𝗻𝗴𝗲𝗿: </b> <code>{uptime}</code>\n"
-        f"⏱ 𝗨𝗽𝘁𝗶𝗺𝗲: </b> <code>{duration}ms</code>\n"
+        f"🚀 𝗣𝗶𝗻𝗴𝗲𝗿: </b> <code>{duration}</code>\n"
+        f"⏱ 𝗨𝗽𝘁𝗶𝗺𝗲: </b> <code>{uptime}ms</code>\n"
     )
     answers.append(
         InlineQueryResultArticle(
