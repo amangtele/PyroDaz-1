@@ -11,14 +11,13 @@
       "description": "Dapatkan API Hash di web my.telegram.org",
       "required": true
     },
-    "STRING_SESSION1": {
-      "description": "Dapatkan String Session Pyrogram di Grup » https://t.me/StringManRobot » Lalu ketik #stringV2",
+    "BOT_TOKEN": {
+      "description": "Buatlah Sebuah Bot Di BotFather Lalu Salin Token Bot Nya",
       "required": true
     },
-    "BOT_TOKEN": {
-      "description": "Buatlah bot di @botfather lalu ambil token contoh 5616615:aowybqvx, Lalu isi dibawah",
-      "value": "0",
-      "required": false
+    "STRING_SESSION1": {
+      "description": "Dapatkan String Session Pyrogram di Grup » https://t.me/obrolansuar » Lalu ketik #string",
+      "required": true
     },
     "HEROKU_API_KEY": {
       "description": "Ambil Heroku API KEY mu disini » https://dashboard.heroku.com/account",
@@ -27,6 +26,12 @@
     "HEROKU_APP_NAME": {
       "description": "Masukan Nama App heroku, Nama App yang paling pertama di isi (liat paling atas)",
       "required": false
+    },
+     "BOTLOG_CHATID": {
+      "description": "Buatlah grup telegram publik lalu masukan @MissRose_bot ketik /id, masukan id grup nya disini. contoh: -1001473548xxx",
+      "value": "0",
+      "required": false
+       }
   },
   "addons": [
     {
