@@ -72,7 +72,7 @@ async def voicelang(client: Client, message: Message):
 
     
 add_command_help(
-    "vccmnd",
+    "vctools",
     [
         ["startvc", "Untuk Memulai voice chat group."],
         ["stopvc", "Untuk Memberhentikan voice chat group."],
