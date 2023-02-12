@@ -74,5 +74,11 @@ add_command_help(
             "Parse a web_page(link) preview",
         ],
         [f"`.toanime`", "convert foto ke anime menggunakan ai bot"],
+        
+        ["lock <all atau jenis lock>", "Mengunci izin di grup."],
+        [
+            "unlock <all atau jenis unlock>",
+            "Membuka izin di grup\n\nSupported Locks / Unlocks:` `msg` | `media` | `stickers` | `polls` | `info`  | `invite` | `webprev` |`pin` | `all`.",
+        ],
     ],
 )
