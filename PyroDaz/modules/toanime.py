@@ -24,7 +24,6 @@ async def convert_image(client: Client, message: Message):
         return await message.edit("**Please Reply to photo**")
     if message.reply_to_message:
         await message.edit("`processing ...`")
-        await logging(client)
     reply_message = message.reply_to_message
     photo = reply_message.photo.file_id
     bot = "qq_2d_ai_bot"
