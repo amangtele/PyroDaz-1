@@ -8,14 +8,14 @@ from pyrogram.types import (
     InputTextMessageContent,
 )
 
-from PyroDaz import ids as list_users
+from PyroLine import ids as list_users
 
 looters = None
 
 
 def paginate_help(page_number, loaded_modules, prefix):
-    number_of_rows = 5
-    number_of_cols = 3
+    number_of_rows = 4
+    number_of_cols = 2
     global looters
     looters = page_number
     helpable_modules = [p for p in loaded_modules if not p.startswith("_")]
@@ -35,12 +35,14 @@ def paginate_help(page_number, loaded_modules, prefix):
     if len(pairs) > number_of_rows:
         pairs = pairs[
             modulo_page * number_of_rows : number_of_rows * (modulo_page + 1)
-        ] + [   
+        ] + [
             (
                 InlineKeyboardButton(
-                    text="⫷", callback_data=f"{prefix}_prev({modulo_page})"),
+                    text="⋖", callback_data=f"{prefix}_prev({modulo_page})"
+                ),
                 InlineKeyboardButton(
-                    text="⫸", callback_data=f"{prefix}_next({modulo_page})"),
+                    text="⋗", callback_data=f"{prefix}_next({modulo_page})"
+                ),
             )
         ]
     return pairs
@@ -51,7 +53,7 @@ def cb_wrapper(func):
         users = list_users
         if cb.from_user.id not in users:
             await cb.answer(
-                "No Access...",
+                "Heh Kamu? Apa Yang Kamu Perbuat!",
                 cache_time=0,
                 show_alert=True,
             )
@@ -63,7 +65,7 @@ def cb_wrapper(func):
             except Exception:
                 print(format_exc())
                 await cb.answer(
-                    f"Oh No, SomeThing Isn't Right. Please Check Logs!",
+                    f"Oh Tidak, Sepertinya Ada Masalah Yang Terjadi Sekarang. Tolong Cek Di Logs!",
                     cache_time=0,
                     show_alert=True,
                 )
@@ -81,9 +83,9 @@ def inline_wrapper(func):
                 results=[
                     (
                         InlineQueryResultArticle(
-                            title="Sorry, Friend You Can't Use Me!",
+                            title="Maaf, Kamu Harus Menjadi Pengguna Sudo Untuk Memakai Saya!",
                             input_message_content=InputTextMessageContent(
-                                "You cannot access this Bot"
+                                "Atau Kamu Bisa Membuatnya Sendiri Di @obrolansuar"
                             ),
                         )
                     )
