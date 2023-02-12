@@ -82,3 +82,13 @@ add_command_help(
         ],
     ],
 )
+
+add_command_help(
+    "notes",
+    [
+        [f"{cmd}notes", "get all notes"],
+        [f"{cmd}clear", "<note_name>" "Delete a note"],
+        [f"{cmd}save", "<note_name> <reply>" "add a note."],
+        [f"{cmd}get", "<note_name>" "get a note."],
+    ],
+)
