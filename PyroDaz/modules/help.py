@@ -62,7 +62,7 @@ async def module_help(client: Client, message: Message):
             ac.title = "PyroDaz Plugins"
             ac.align = "l"
             for x in split_list(sorted(CMD_HELP.keys()), 2):
-                ac.add_row([x[0], x[1] if len(x) >= 2 else None])
+                ac.add_row([x[0], x[2] if len(x) >= 2 else None])
             xx = await client.send_message(
                 message.chat.id,
                 f"```{str(ac)}```\n• @about_db × @amangsupportgrup •",
