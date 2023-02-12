@@ -189,16 +189,3 @@ async def tracemoe_rs(client: Client, message: Message):
         await message.delete()
         return
 
-
-add_command_help(
-    "reverse",
-    [
-        ["reverse", "Reply to a image ."],
-        ["areverse", "Reply to a message ."],
-        ["paste <reply>", "Untuk Menyimpan text ke ke layanan pastebin"],
-        [
-            "parse",
-            "Parse a web_page(link) preview",
-        ]
-    ],
-)
