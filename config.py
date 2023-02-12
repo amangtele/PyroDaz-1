@@ -26,6 +26,7 @@ BOT_TOKEN = getenv("BOT_TOKEN", "")
 ID_OWNER = getenv("ID_OWNER", "2056203142")
 GIT_TOKEN = getenv("GIT_TOKEN", "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")
 BOT_VER = "1.2.2@main"
+Exp = "13.02.2024"
 BOTLOG_CHATID = int(getenv("BOTLOG_CHATID") or 0)
 BRANCH = getenv("BRANCH", "main")
 CHANNEL = getenv("CHANNEL", "About_db")
