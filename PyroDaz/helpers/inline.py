@@ -53,7 +53,7 @@ def cb_wrapper(func):
             await cb.answer(
                 "No Access...",
                 cache_time=0,
-                show_alert=False,
+                show_alert=True,
             )
         else:
             try:
@@ -65,7 +65,7 @@ def cb_wrapper(func):
                 await cb.answer(
                     f"Oh No, SomeThing Isn't Right. Please Check Logs!",
                     cache_time=0,
-                    show_alert=False,
+                    show_alert=True,
                 )
 
     return wrapper
