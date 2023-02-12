@@ -64,7 +64,7 @@ async def panggil_notes(client, message):
 
 
 add_command_help(
-    "Notes",
+    "notes",
     [
         [f"notes", "get all notes"],
         [f"clear", "<note_name>" "Delete a note"],
