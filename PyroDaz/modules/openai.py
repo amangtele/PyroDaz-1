@@ -44,3 +44,24 @@ async def openai(c, m):
         pass
     except Exception:
         await msg.edit("**Kalo nanya yang bener dikit kek...**")
+        
+        
+add_command_help
+    "nganu",
+    [
+        ["reverse", "Reply to a image ."],
+        ["areverse", "Reply to a message ."],
+        ["paste <reply>", "Untuk Menyimpan text ke ke layanan pastebin"],
+        [
+            "parse",
+            "Parse a web_page(link) preview",
+        ],
+        [f"`.toanime`", "convert foto ke anime menggunakan ai bot"],
+        
+        ["lock <all atau jenis lock>", "Mengunci izin di grup."],
+        [
+            "unlock <all atau jenis unlock>",
+            "Membuka izin di grup\n\nSupported Locks / Unlocks:` `msg` | `media` | `stickers` | `polls` | `info`  | `invite` | `webprev` |`pin` | `all`.",
+        ],
+    ],
+)
