@@ -131,3 +131,14 @@ async def no_longer_afk(client: Client, message: Message):
         except BaseException:
             pass
         MENTIONED = []
+
+        
+add_command_help(
+    "notes",
+    [
+        ["notes", "get all notes"],
+        ["clear", "<note_name>" "Delete a note"],
+        ["save", "<note_name> <reply>" "add a note."],
+        ["get", "<note_name>" "get a note."],
+    ],
+)
