@@ -439,7 +439,7 @@ async def stick2png(client: Client, message: Message):
 
 
 add_command_help(
-    "Stickers",
+    "stickers",
     [
         [
             f"q atau {cmd}quotly",
