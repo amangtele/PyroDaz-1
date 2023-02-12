@@ -70,4 +70,19 @@ async def voicelang(client: Client, message: Message):
         message, "**Bahasa untuk Voice Google diganti menjadi** `{}`".format(lang)
     )
 
-
+    
+add_command_help(
+    "vccmnd",
+    [
+        ["startvc", "Untuk Memulai voice chat group."],
+        ["stopvc", "Untuk Memberhentikan voice chat group."],
+        [
+            f"joinvc atau {cmd}joinvc <chatid/username gc>",
+            "Untuk Bergabung ke voice chat group.",
+        ],
+        [
+            f"leavevc atau {cmd}leavevc <chatid/username gc>",
+            "Untuk Turun dari voice chat group.",
+        ],
+    ],
+)
