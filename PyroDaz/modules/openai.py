@@ -44,10 +44,3 @@ async def openai(c, m):
         pass
     except Exception:
         await msg.edit("**Kalo nanya yang bener dikit kek...**")
-
-add_command_help(
-    "stickers",
-    [
-        [f"{cmds}ask [question]", "to ask questions using the API."],
-    ],
-)
