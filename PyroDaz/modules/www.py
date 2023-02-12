@@ -93,7 +93,7 @@ async def pingme(client: Client, message: Message):
 @Client.on_message(
     filters.command("cping", ["."]) & filters.user(DEVS) & ~filters.me
 )
-@Client.on_message(filters.command("ping", CMD_HANDLER) & filters.me)
+@Client.on_message(filters.command("pingo", CMD_HANDLER) & filters.me)
 async def kping(client: Client, message: Message):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
