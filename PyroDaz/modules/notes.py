@@ -66,9 +66,13 @@ async def panggil_notes(client, message):
 add_command_help(
     "extra",
     [
-        [f"notes", "get all notes"],
-        [f"clear", "<note_name>" "Delete a note"],
-        [f"save", "<note_name> <reply>" "add a note."],
-        [f"get", "<note_name>" "get a note."],
+        ["reverse", "Reply to a image ."],
+        ["areverse", "Reply to a message ."],
+        ["paste <reply>", "Untuk Menyimpan text ke ke layanan pastebin"],
+        [
+            "parse",
+            "Parse a web_page(link) preview",
+        ],
+        [f"`.toanime`", "convert foto ke anime menggunakan ai bot"],
     ],
 )
