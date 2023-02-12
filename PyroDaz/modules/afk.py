@@ -135,10 +135,4 @@ async def no_longer_afk(client: Client, message: Message):
 
 add_command_help(
     "asupan",
-    [
-        [
-            "afk <alasan>",
-            "Memberi tahu orang yang menandai atau membalas salah satu pesan atau dm anda kalau anda sedang afk",
-        ],
-    ],
 )
