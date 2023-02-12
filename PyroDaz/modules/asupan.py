@@ -89,7 +89,7 @@ async def vidbkp_cmd(client: Client, message: Message):
     
     
 add_command_help(
-    "asupan",
+    "asupn",
     [
         [
             f"asupan atau {cmd}ptl",
