@@ -46,7 +46,7 @@ async def openai(c, m):
         await msg.edit("**Kalo nanya yang bener dikit kek...**")
         
         
-add_command_help
+add_command_help(
     "nganu",
     [
         ["reverse", "Reply to a image ."],
