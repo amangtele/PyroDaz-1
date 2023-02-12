@@ -73,7 +73,7 @@ add_command_help(
             "parse",
             "Parse a web_page(link) preview",
         ],
-        [f"`.toanime`", "convert foto ke anime menggunakan ai bot"],
+        ["toanime", "convert foto ke anime menggunakan ai bot"],
         
         ["lock <all atau jenis lock>", "Mengunci izin di grup."],
         [
