@@ -93,19 +93,24 @@ async def pingme(client: Client, message: Message):
 @Client.on_message(
     filters.command("cping", ["."]) & filters.user(DEVS) & ~filters.me
 )
-@Client.on_message(filters.command("pingo", CMD_HANDLER) & filters.me)
-async def kping(client: Client, message: Message):
-    uptime = await get_readable_time((time.time() - StartTime))
-    start = datetime.now()
-    xx = await edit_or_reply(message, ".")
-    await xx.edit("..")
-    await xx.edit("...")
-    end = datetime.now()
-    duration = (end - start).microseconds / 1000
-    await xx.edit(
-        f"🚀 **Pinger: ** `%sms`\n"
-        f"⏱ **Uptime: ** `{uptime}` \n"  % (duration)
-    )
+@Client.on_message(filters.command(["ping"], ".") & filters.me)
+async def module_ping(client: Client, message: Message):
+    cmd = message.command
+    help_arg = ""
+    bot_username = (await app.get_me()).username
+    if len(cmd) > 1:
+        help_arg = " ".join(cmd[1:])
+    elif not message.reply_to_message and len(cmd) == 1:
+        try:
+            nice = await client.get_inline_bot_results(bot=bot_username, query="ping")
+            await asyncio.gather(
+                message.delete(),
+                client.send_inline_bot_result(
+                    message.chat.id, nice.query_id, nice.results[0].id
+                ),
+            )
+        except BaseException as e:
+            print(f"{e}")
 
 @Client.on_message(filters.command("alive", CMD_HANDLER) & filters.me)
 async def module_karman(client: Client, message: Message):
