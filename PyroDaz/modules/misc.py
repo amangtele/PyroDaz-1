@@ -177,7 +177,7 @@ async def sosmed(client: Client, message: Message):
 
 
 add_command_help(
-    "Misc",
+    "misc",
     [
         ["limit", "Check Limit telegram from @SpamBot."],
         [
