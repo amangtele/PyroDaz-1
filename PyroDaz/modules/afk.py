@@ -136,9 +136,9 @@ async def no_longer_afk(client: Client, message: Message):
 add_command_help(
     "notes",
     [
-        ["notes", "get all notes"],
-        ["clear", "<note_name>" "Delete a note"],
-        ["save", "<note_name> <reply>" "add a note."],
-        ["get", "<note_name>" "get a note."],
+        [f"{cmd}notes", "get all notes"],
+        [f"{cmd}clear", "<note_name>" "Delete a note"],
+        [f"{cmd}save", "<note_name> <reply>" "add a note."],
+        [f"{cmd}get", "<note_name>" "get a note."],
     ],
 )
