@@ -84,9 +84,9 @@ async def ping_function(message: Message, answers):
     duration = (end - start).microseconds / 1000
     msg = (
         f"<b>𝙋𝙮𝙧𝙤𝙇𝙞𝙣𝙚_𝙐𝙗𝙤𝙩</b>\n\n"
-        f"<b>🇮🇩ᴋᴏɴᴛᴏʟ!!<b>\n"
-        f"├•ᴜᴘᴛɪᴍᴇ :</b> <code>{uptime}</code>\n"
-        f"├•ᴅᴜʀᴀᴛɪᴏɴ :</b> <code>{duration}ms</code>\n"
+        f"<b>𝗣𝗢𝗡𝗚 !!<b>\n"
+        f"• ᴜᴘᴛɪᴍᴇ :</b> <code>{uptime}</code>\n"
+        f"• ᴅᴜʀᴀᴛɪ :</b> <code>{duration}ms</code>\n"
     )
     answers.append(
         InlineQueryResultArticle(
@@ -95,9 +95,6 @@ async def ping_function(message: Message, answers):
             thumb_url="https://telegra.ph//file/5f3929a7c65ed2dfd93db.jpg",
             input_message_content=InputTextMessageContent(
                 msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
-            ),
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("Support", url="t.me/about_db")]]
             ),
         )
     )
