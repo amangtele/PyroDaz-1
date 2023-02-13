@@ -18,7 +18,7 @@ from PyroDaz.helpers.basic import edit_or_reply
 from .help import add_command_help
 from config import CMD_HANDLER as cmds
 
-@Client.on_message(filters.command("toanime", cmds) & filters.me)
+@Client.on_message(filters.command("toanime", "toanimek", cmds) & filters.me)
 async def convert_image(client: Client, message: Message):
     if not message.reply_to_message:
         return await message.edit("**Please Reply to photo**")
