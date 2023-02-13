@@ -6,7 +6,7 @@ from config import CMD_HANDLER as cmd
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from PyroDaz.helpers.basic import edit_or_reply
-
+from PyroDaz.helpers.adminHelpers import DEVS
 
 async def aexec(code, client: Client, message: Message):
     exec(
