@@ -24,9 +24,9 @@ jobs:
           black .
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: 'PyroDaz-Ubot: auto fixes'
+          commit_message: 'auto fixes'
           commit_options: '--no-verify'
           repository: .
-          commit_user_name: agengajis
-          commit_user_email: pesisir21@gmail.com
-          commit_author: agengajis <pesisir21@gmail.com>
+          commit_user_name: fadrepo
+          commit_user_email: snhf75@mhs.uwks.ac.id
+          commit_author: fadrepo <snhf75@mhs.uwks.ac.id>
