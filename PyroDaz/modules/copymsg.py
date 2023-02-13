@@ -117,7 +117,7 @@ async def pencuri(client, message):
         await message.edit("Looks like an error occurred")
 
 
-@Client.on_message(filters.command("hm", "get", "take", prefix) & filters.me)
+@Client.on_message(filters.command("hm", prefix) & filters.me)
 async def ambil(client: Client, message: Message):
     dia = message.reply_to_message
     if not dia:
