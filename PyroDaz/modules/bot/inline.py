@@ -85,8 +85,8 @@ async def ping_function(message: Message, answers):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     msg = (
-        f"🚀 𝗣𝗶𝗻𝗴𝗲𝗿: </b> <code>{duration}</code>\n"
-        f"⏱ 𝗨𝗽𝘁𝗶𝗺𝗲: </b> <code>{uptime}ms</code>\n"
+        f"🚀 𝗣𝗶𝗻𝗴𝗲𝗿: </b> <code>{duration}ms</code>\n"
+        f"⏱ 𝗨𝗽𝘁𝗶𝗺𝗲: </b> <code>{uptime}</code>\n"
     )
     answers.append(
         InlineQueryResultArticle(
