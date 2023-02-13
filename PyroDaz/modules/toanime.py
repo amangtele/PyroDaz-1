@@ -33,7 +33,7 @@ async def convert_image(client: Client, message: Message):
         if result.photo:
             await message.edit("uploading...")
             converted_image_file = await client.download_media(result)
-            await client.send_photo(message.chat.id, converted_image_file, caption="Powered by DazPyro")
+            await client.send_photo(message.chat.id, converted_image_file, caption="𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝙗𝙮: 𝙋𝙮𝙧𝙤𝙇𝙞𝙣𝙚")
             await message.delete()
         else:
             await message.edit("`error message ...`")
