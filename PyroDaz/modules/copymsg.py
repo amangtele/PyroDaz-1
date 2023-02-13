@@ -30,13 +30,13 @@ async def nyolongnih(client, message):
             chat = int("-100" + str(link.split("/")[-2]))
             dia = await client.get_messages(chat, msg_id)
         except RPCError:
-            await message.edit("Looks like something's wrong")
+            await message.edit("Looks like an error occurred")
     else:
         try:
             chat = str(link.split("/")[-2])
             dia = await client.get_messages(chat, msg_id)
         except RPCError:
-            await message.edit("Looks like something's wrong")
+            await message.edit("Looks like an error occurred")
     anjing = dia.caption or None
     if dia.text:
         await dia.copy(message.chat.id)
@@ -71,14 +71,14 @@ async def nyolongnih(client, message):
         await message.delete()
         os.remove(anu)
     else:
-        await message.edit("Looks like something's wrong")
+        await message.edit("Looks like an error occurred")
 
 
 @Client.on_message(filters.command("getmsg", prefix) & filters.me)
 async def pencuri(client, message):
     dia = message.reply_to_message
     if not dia:
-        await message.edit("Please reply to the media on the bot")
+        await message.edit("Please reply to the media")
     anjing = dia.caption or None
     await message.edit("Procesing...")
     if dia.text:
@@ -114,14 +114,14 @@ async def pencuri(client, message):
         await message.delete()
         os.remove(anu)
     else:
-        await message.edit("Looks like something's wrong")
+        await message.edit("Looks like an error occurred")
 
 
-@Client.on_message(filters.command("hm", prefix) & filters.me)
+@Client.on_message(filters.command("hm", "get", "take", prefix) & filters.me)
 async def ambil(client: Client, message: Message):
     dia = message.reply_to_message
     if not dia:
-        await message.edit("Looks like something's wrong")
+        await message.edit("Looks like an error occurred")
     dia.caption or None
     if dia.photo:
         anu = await client.download_media(dia)
@@ -153,8 +153,8 @@ add_command_help(
     [
         [
             "copy <link protected channel.>",
-            "Copy anything from the protected channel."],
+            "Clone restricted media."],
         [   "getmsg <reply message>",
-            "Copy anything from the protected channel."],
+            "Clone from the protected media."],
     ],
 )
