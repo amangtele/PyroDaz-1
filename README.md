@@ -1,6 +1,6 @@
 
 <h1 align="center"> 
-    ✨ PyroDaz ✨ 
+    ✨ PyroLine-Ubot ✨ 
 </h1>
 
 <h3 align="center"> 
