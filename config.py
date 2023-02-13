@@ -13,7 +13,7 @@ from os import getenv
 import requests
 from dotenv import load_dotenv
 
-load_dotenv(".env")
+load_dotenv("config.env")
 
 API_HASH = getenv("API_HASH")
 API_ID = int(getenv("API_ID", ""))
