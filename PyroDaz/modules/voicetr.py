@@ -72,17 +72,29 @@ async def voicelang(client: Client, message: Message):
 
     
 add_command_help(
-    "vctools",
+    "voice",
     [
-        ["startvc", "Untuk Memulai voice chat group."],
-        ["stopvc", "Untuk Memberhentikan voice chat group."],
+        [f"voice atau {cmd}tts [text/reply]", "Ubah teks menjadi suara oleh google."],
         [
-            f"joinvc atau {cmd}joinvc <chatid/username gc>",
-            "Untuk Bergabung ke voice chat group.",
-        ],
-        [
-            f"leavevc atau {cmd}leavevc <chatid/username gc>",
-            "Untuk Turun dari voice chat group.",
+            f"{cmd}voicelang (lang_id) ",
+            "Setel bahasa suara anda\n\nBeberapa Bahasa Suara yang Tersedia:"
+            "\nID| Language  | ID| Language\n"
+            "af: Afrikaans | ar: Arabic\n"
+            "cs: Czech     | de: German\n"
+            "el: Greek     | en: English\n"
+            "es: Spanish   | fr: French\n"
+            "hi: Hindi     | id: Indonesian\n"
+            "is: Icelandic | it: Italian\n"
+            "ja: Japanese  | jw: Javanese\n"
+            "ko: Korean    | la: Latin\n"
+            "my: Myanmar   | ne: Nepali\n"
+            "nl: Dutch     | pt: Portuguese\n"
+            "ru: Russian   | su: Sundanese\n"
+            "sv: Swedish   | th: Thai\n"
+            "tl: Filipino  | tr: Turkish\n"
+            "vi: Vietname  |\n"
+            "zh-cn: Chinese (Mandarin/China)\n"
+            "zh-tw: Chinese (Mandarin/Taiwan)",
         ],
     ],
 )
