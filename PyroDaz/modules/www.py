@@ -74,7 +74,7 @@ async def nearest_dc(client: Client, message: Message):
         message, WWW.NearestDC.format(dc.country, dc.nearest_dc, dc.this_dc)
     )
 
-@Client.on_message(filters.command("x3j7k", CMD_HANDLER) & filters.me)
+@Client.on_message(filters.command("pings", CMD_HANDLER) & filters.me)
 async def pingme(client: Client, message: Message):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
