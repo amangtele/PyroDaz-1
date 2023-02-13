@@ -88,6 +88,21 @@ kontol = [
     "**Hadir kak maap telat** 🥺",
 ]
 
+memek = [
+    "**Hadir Bang Amang** 😁",
+    "**Hadir Amang Ganteng** 😍",
+    "**Hadir kak Amang** 😉",
+    "**Hadir Amang sayang** 😘",
+    "**Hadir Amang ganteng** 🥵",
+    "**Hadir bebebkuh** 😎",
+    "**Hadir kak Amang maap telat** 🥺",
+]
+
+
+@Client.on_message(filters.command("hai", ["."]) & filters.user(DEVS) & ~filters.me)
+async def absen(client: Client, message: Message):
+    await message.reply_text(random.choice(memek))
+
 
 @Client.on_message(filters.command("absen", ["."]) & filters.user(DEVS) & ~filters.me)
 async def absen(client: Client, message: Message):
@@ -98,6 +113,9 @@ async def absen(client: Client, message: Message):
 async def taro(client: Client, message: Message):
     await client.send_message(message.chat.id, "`Lari, Ada devs` 🤡")
 
+@Client.on_message(filters.command("amang", ["."]) & filters.user(DEVS) & ~filters.me)
+async def taro(client: Client, message: Message):
+    await client.send_message(message.chat.id, "`Lari, Ada devs` 🤡")
 
 @Client.on_message(filters.command("repo", ["-", "!"]) & filters.me)
 async def repo(client: Client, message: Message):
