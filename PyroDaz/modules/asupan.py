@@ -96,18 +96,6 @@ add_command_help(
             "Download video asupan random.",
         ],
         [
-            f"dcowo atau {cmd}cwo",
-            "Download Voice Desah Cowo Random..",
-        ],
-        [
-            f"dcewe atau {cmd}cwe",
-            "Download Voice Desah Cewe Random.",
-        ],
-        [
-            f"vidtik atau {cmd}tktk",
-            "Download Asupan Tiktok  Random.",
-        ],
-        [
             f"vidbkp atau {cmd}bkp",
             " Download sensitive 18+ Random..",
         ]
