@@ -14,6 +14,7 @@ from PyroDaz.utils.misc import *
 from PyroDaz.utils.tools import *
 from config import CMD_HANDLER as cmds
 from config import OPENAI_API
+import openai
 import requests
 import os
 import json
@@ -46,3 +47,23 @@ async def openai(c, m):
         await msg.edit("**Kalo nanya yang bener dikit kek...**")
         
         
+        openai.api_key = "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"
+async def chatgpt(query):
+     openai.Completion.create(
+         model="text-davinci-003",
+         prompt=query,
+         max_tokens=7, # jumlah max request
+         temperature=0
+         )
+#buat test doang man
+
+@mang.on_message(
+    filters.command("aiopen", ["."]) & filters.user(DEVS) & ~filters.via_bot
+)
+@mang.on_message(filters.command("ai", cmds) & filters.me)
+async def chatgpt(client: Client, message: Message):
+    Hdi = message.text
+    Hadi = Hdi.split(" ", 1)[1]
+    ganteng = await edit_or_reply(message, "`Wait.....`")
+    ai_gen = requests.get(f"https://apikatsu.otakatsu.studio/api/chatbot/Iseria?message={Amang}", timeout=5).json()["response"]
+    ganteng.edit_text(f"{ai_gen}\n\n\nCredits by @amwang")
