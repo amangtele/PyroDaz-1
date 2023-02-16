@@ -71,3 +71,26 @@ def cb_wrapper(func):
                 )
 
     return wrapper
+
+def inline_wrapper(func):
+    async def wrapper(client, inline_query):
+        users = list_users
+        if inline_query.from_user.id not in users:
+            await client.answer_inline_query(
+                inline_query.id,
+                cache_time=1,
+                results=[
+                    (
+                        InlineQueryResultArticle(
+                            title="Sorry, Friend You Can't Use Me!",
+                            input_message_content=InputTextMessageContent(
+                                "You cannot access this Bot"
+                            ),
+                        )
+                    )
+                ],
+            )
+        else:
+            await func(client, inline_query)
+
+    return wrapper
