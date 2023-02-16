@@ -7,9 +7,9 @@ from PyroDaz.helpers.SQL.afk_db import get_afk, set_afk
 from config import CMD_HANDLER as prefix
 
 # avoid using global variables
-afk_info = db.get(
-    "core.afk",
-    "afk_info",
+afk_info = afk_db.get(
+    "get_afk",
+    "set_afk",
     {
         "start": 0,
         "is_afk": False,
@@ -49,7 +49,7 @@ async def afk(_, message):
 
     await message.edit(f"<b>I'm going AFK.\n" f"Reason:</b> <i>{reason}</i>")
 
-    db.set("core.afk", "afk_info", afk_info)
+    afk_db.set("get_afk", "set_afk", afk_info)
 
 
 @Client.on_message(filters.command("unafk", prefix) & filters.me)
@@ -63,7 +63,7 @@ async def unafk(_, message):
     else:
         await message.edit("<b>You weren't afk</b>")
 
-    db.set("core.afk", "afk_info", afk_info)
+    afk_db.set("get_afk", "set_afk", afk_info)
 
 
 add_command_help(
