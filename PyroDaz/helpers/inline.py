@@ -71,27 +71,3 @@ def cb_wrapper(func):
                 )
 
     return wrapper
-
-
-def inline_wrapper(func):
-    async def wrapper(client, inline_query):
-        users = list_users
-        if inline_query.from_user.id not in users:
-            await client.answer_inline_query(
-                inline_query.id,
-                cache_time=1,
-                results=[
-                    (
-                        InlineQueryResultArticle(
-                            title="Maaf, Kamu Harus Menjadi Pengguna Sudo Untuk Memakai Saya!",
-                            input_message_content=InputTextMessageContent(
-                                "Atau Kamu Bisa Membuatnya Sendiri Di @obrolansuar"
-                            ),
-                        )
-                    )
-                ],
-            )
-        else:
-            await func(client, inline_query)
-
-    return wrapper
