@@ -21,6 +21,7 @@ from PyroDaz.helpers.data import Data
 from PyroDaz.helpers.inline import inline_wrapper, paginate_help
 from config import BOT_VER, BRANCH as branch
 from config import Exp as exp
+from config import Status as stts
 from PyroDaz import CMD_HELP, StartTime, app
 
 modules = CMD_HELP
@@ -54,7 +55,7 @@ async def alive_function(message: Message, answers):
     uptime = await get_readable_time((time.time() - StartTime))
     msg = f"""
 <b> 𝙋𝙮𝙧𝙤𝙇𝙞𝙣𝙚_𝙐𝙗𝙤𝙩 </b>
-<b>       Status : 𝘗𝘳𝘦𝘮𝘪𝘶𝘮</b>
+<b>       Status : 𝘗𝘳𝘦𝘮𝘪𝘶𝘮 [{stts}] </b>
 <b>         User :</b> {message.from_user.mention}
 <b>         Exp :</b> {exp}
 <b>         Plugins :</b> <code>{len(CMD_HELP)} Modules</code>
@@ -104,7 +105,7 @@ async def ping_function(message: Message, answers):
 async def karman_function(message: Message, answers):
     msg = (
         f"𝙋𝙮𝙧𝙤𝙇𝙞𝙣𝙚_𝙐𝙗𝙤𝙩 \n"
-        "ㅤㅤStatus : 𝘗𝘳𝘦𝘮𝘪𝘶𝘮 \n"
+        f"ㅤㅤStatus : 𝘗𝘳𝘦𝘮𝘪𝘶𝘮 [{stts}] \n"
         f"ㅤㅤㅤㅤmodules:</b> <code>{len(modules)} Modules</code> \n"
         f"ㅤㅤㅤㅤbot version: {BOT_VER} \n"
         f"ㅤㅤㅤㅤbranch: {branch} \n\n"
