@@ -26,11 +26,11 @@ async def setprefix_(c: Client, m: Message):
     if not handle:
         return await eod(
             m,
-            f"Set you prefix use {prefix}setprefix [new_prefix]\n • Current prefix is {cmd}",
+            f"Set you prefix use {cmd}setprefix [new_prefix]\n • Current prefix is {cmd}",
             time=30,
         )
     else:
-        addgvar("PREFIX", handle)
-        await m.edit(f"☑️ Prefix change to [{handle}]")
+        addgvar("PREFIX", cmd)
+        await m.edit(f"☑️ Prefix change to [{cmd}]")
         restart()
 
