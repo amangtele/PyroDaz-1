@@ -37,7 +37,7 @@ async def alive(client: Client, message: Message):
     send = client.send_video if alive_logo.endswith(".mp4") else client.send_photo
     uptime = await get_readable_time((time.time() - StartTime))
     man = (
-        f"**𝗣𝘆𝗿𝗼-𝗗𝗮𝘇𝗨𝗯𝗼𝘁...**\n"
+        f"**𝙋𝙮𝙧𝙤𝙇𝙞𝙣𝙚_𝙐𝙗𝙤𝙩**\n"
         f"<b>{alive_text}</b>\n\n"
         f"๏ <b>Devployer :</b> {client.me.mention} \n"
         f"๏ <b>Hosting :</b> `[Local Vps]` \n"
