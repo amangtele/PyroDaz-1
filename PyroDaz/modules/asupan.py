@@ -92,11 +92,11 @@ add_command_help(
     "asupan",
     [
         [
-            "{cmd}asupan atau {cmd}ptl",
+            f"{cmd} asupan atau {cmd} ptl",
             "Download video asupan random.",
         ],
         [
-            "{cmd}vidbkp atau {cmd}bkp",
+            f"{cmd} vidbkp atau {cmd} bkp",
             " Download sensitive 18+ Random..",
         ]
     ],
