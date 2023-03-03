@@ -22,7 +22,7 @@ async def chatgpt(c: Client, m: Message):
         else None
     )
     if not randydev:
-       await m.reply(f"use command <code>/{m.command[0]} [question]</code> to ask questions using the API.")
+       await m.reply(f"use command {cmd} [question] to ask questions using the API.")
        return
     headers = {
         "Content-Type": "application/json",
@@ -45,6 +45,6 @@ async def chatgpt(c: Client, m: Message):
         await asyncio.sleep(5)
         await c.send_message(m.chat.id, response["choices"][0]["text"], reply_to_message_id=m.id)
     except Exception:
-        await c.send_message(m.chat.id, "Yahh, sorry i can't get your answer.", reply_to_message_id=m.id)
+        await c.send_message(m.chat.id, "GI ERROR BANH, BLM FIX.", reply_to_message_id=m.id)
         
         
