@@ -9,9 +9,9 @@ from pyrogram import Client as mang
 from pyrogram.errors import MessageNotModified
 from PyroDaz.helpers.what import *
 from config import OPENAI_API
+from config import CMD_HANDLER as cmd
 
-
-@mang.on_message(filters.command("ask", cmds) & filters.me)
+@mang.on_message(filters.command("ask", cmd) & filters.me)
 async def chatgpt(c: Client, m: Message):
     randydev = (
         m.text.split(None, 1)[1]
