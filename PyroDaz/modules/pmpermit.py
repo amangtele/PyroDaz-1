@@ -9,6 +9,7 @@ from PyroDaz.helpers.basic import *
 from PyroDaz.helpers.SQL.pm_permit_sql import approve, dissprove, is_approved
 from PyroDaz.helpers.tools import eod
 from PyroDaz.utils import *
+from PyroDaz.helpers.adminHelpers import DEVS
 
 from .help import add_command_help
 
